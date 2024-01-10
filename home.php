@@ -2,8 +2,9 @@
 get_header();
 // template name:home
 ?>
+hii
  <!-- ======= Hero Section ======= -->
- 
+
  <section id="hero">
     <div class="container">
       <div class="row" id='home'>
