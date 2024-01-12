@@ -78,14 +78,6 @@
 }
 
 
-/* about  */
-section#features {
-    background: url(/assets/img/cta-bg.jpg);
-    background-size: cover; /* Adjusts the size of the background image */
-
-}
-
-
 /* header  */
 
 .container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
@@ -190,7 +182,7 @@ section#portfolio {
   margin-bottom: 20px;
   padding-bottom: 0;
   font-style: italic;
-  color: navy;
+  color: #00496d;
 }
 
 
@@ -263,7 +255,7 @@ section#portfolio {
 
 #testimonials .container .section-title h2 {
   font-size: 45px;
-  font-weight: 400;
+  font-weight: 600;
   margin-bottom: 0px;
   padding-bottom: 0;
   font-family: "Poppins", sans-serif;
@@ -298,15 +290,17 @@ section#portfolio {
 /* Style member-info (name and position) */
 .testimonial-item .member-info {
   background: #f0f0b1;
+  margin-top: 10px;
   height: 23px;
   overflow: hidden;
   text-align: center;
-  transition: height 0.3s; /* Apply transition for height */
+  transition: height 0.5s;
 }
 
 .testimonial-item:hover .member-info {
-  height: auto;
+  height: 100px;
   text-align: center;
+  transition: height 0.7s;
 }
 
 
@@ -330,5 +324,84 @@ section#portfolio {
   margin: 0 5px;
   color: #333;
   font-size: 20px;
+}
+
+
+
+/* four options  */
+/* .card-container img {
+  width: 226px;
+}
+
+ul.horizontal-list {
+  text-align: left;
+  margin-left: 27%;
+} */
+
+.card-container .horizontal-list {
+  list-style: none;
+  padding: 15px;
+  margin: 0;
+}
+
+.card-container .horizontal-list li {
+  display: -webkit-inline-box;
+  padding: 10px;
+  height: 36px;
+  font-size: 13px;
+  margin: 1px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+
+.card-container .img img {
+  max-width: 100%; /* Ensure the image inside the card does not exceed the container */
+  height: auto;
+  padding: 8px 0px;
+}
+.card-container {
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: justify;
+}
+@media (min-width: 992px) {
+  .card-container .img img {
+    max-width: 50%;
+    height: auto;
+    padding: 8px 0px;
+    display: block;
+    text-align: center;
+}
+  .card-container {
+    margin: 5% 20%;
+    border-radius: 10px;
+    box-shadow: 0 11px 12px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    text-align: justify;
+    width: 80%;
+    height: auto;
+}
+}
+.img {
+  text-align: -webkit-center;
+  background: black;
+}
+
+
+.horizontal-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ddd; /* Add a border at the top of the list */
+  padding-top: 10px; /* Add some padding for spacing */
+}
+
+
+
+#features .container .section-title h2 {
+  font-weight: 600;
+  color: #000000;
+  font-family: 'Raleway';
 }
 
