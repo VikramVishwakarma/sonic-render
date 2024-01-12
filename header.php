@@ -35,10 +35,11 @@
 
 
         section#testimonials {
-          background-image: url('<?php echo get_template_directory_uri()?>/assets/img/background/FP-01-01.jpg');
+          background-image: url('<?php echo get_template_directory_uri()?>/assets/img/background/team_bg.jpg');
           background-position: 100% 100%;
           background-size: cover;
           background-attachment: fixed;
+          height: 700px;
         }
 
         /* .cta {
@@ -53,7 +54,6 @@
           background-size: cover;
           padding: 100px 0; /* Adjust padding as needed */
         }
-
         </style>
 
         <?php wp_head();?>
