@@ -2,7 +2,6 @@
 get_header();
 // template name:home
 ?>
-hii
  <!-- ======= Hero Section ======= -->
 
  <section id="hero">
@@ -86,86 +85,6 @@ hii
       </div>
     </section><!-- End About Section -->
 
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features">
-      <div class="container">
-
-        <div class="row">
-          <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
-            <ul class="nav nav-tabs flex-column">
-              <li class="nav-item" data-aos="fade-up">
-                <a class="nav-link active show" data-toggle="tab" href="#tab-1">
-                  <h4>Modi sit est</h4>
-                  <p>Quis excepturi porro totam sint earum quo nulla perspiciatis eius.</p>
-                </a>
-              </li>
-              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
-                <a class="nav-link" data-toggle="tab" href="#tab-2">
-                  <h4>Unde praesentium sed</h4>
-                  <p>Voluptas vel esse repudiandae quo excepturi.</p>
-                </a>
-              </li>
-              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
-                <a class="nav-link" data-toggle="tab" href="#tab-3">
-                  <h4>Pariatur explicabo vel</h4>
-                  <p>Velit veniam ipsa sit nihil blanditiis mollitia natus.</p>
-                </a>
-              </li>
-              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
-                <a class="nav-link" data-toggle="tab" href="#tab-4">
-                  <h4>Nostrum qui quasi</h4>
-                  <p>Ratione hic sapiente nostrum doloremque illum nulla praesentium id</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
-            <div class="tab-content">
-              <div class="tab-pane active show" id="tab-1">
-                <figure>
-                  <img src="assets/img/features-1.png" alt="" class="img-fluid">
-                </figure>
-              </div>
-              <div class="tab-pane" id="tab-2">
-                <figure>
-                  <img src="assets/img/features-2.png" alt="" class="img-fluid">
-                </figure>
-              </div>
-              <div class="tab-pane" id="tab-3">
-                <figure>
-                  <img src="assets/img/features-3.png" alt="" class="img-fluid">
-                </figure>
-              </div>
-              <div class="tab-pane" id="tab-4">
-                <figure>
-                  <img src="assets/img/features-4.png" alt="" class="img-fluid">
-                </figure>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Features Section -->
-
-    <!-- ======= Cta Section ======= -->
-    <section id="cta" class="cta">
-      <div class="container">
-
-        <div class="row" data-aos="zoom-in">
-          <div class="col-lg-9 text-center text-lg-left">
-            <h3>We are Designer</h3>
-            <p> Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
-          </div>
-          <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#portfolio">Call To Action</a>
-          </div>
-        </div>
-
-      </div>
-    </section><!-- End Cta Section -->
-
-
     <!-- ======= Services Section ======= -->
     <section id="services" class="services section-bg">
       <div class="container">
@@ -220,6 +139,171 @@ hii
     </section><!-- End Services Section -->
 
   
+    <!-- ======= Features Section ======= -->
+    <section id="features" class="features">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>What we do</h2>
+        </div>
+
+
+        <div class="row">
+          <div class="col-lg-6 mt-2 mb-tg-0 order-2 order-lg-1">
+            <ul class="nav nav-tabs flex-column">
+              <li class="nav-item" data-aos="fade-up">
+                <a class="nav-link active show" data-toggle="tab" href="#tab-1">
+                  <h4>3D Models</h4>
+                  <p>Portray real-world and conceptual visuals for art, entertainment, simulation and drafting.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="100">
+                <a class="nav-link" data-toggle="tab" href="#tab-2">
+                  <h4>3D Characters</h4>
+                  <p>Creates a three-dimensional digital representation of a surface or an object.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="200">
+                <a class="nav-link" data-toggle="tab" href="#tab-3">
+                  <h4>AR | VR | XR | MR</h4>
+                  <p>Real and/or virtual environments or interactions generated by tech.</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
+                <a class="nav-link" data-toggle="tab" href="#tab-4">
+                  <h4>3D Scan</h4>
+                  <p>Creating high-precision 3D models of real-world objects</p>
+                </a>
+              </li>
+              <li class="nav-item mt-2" data-aos="fade-up" data-aos-delay="300">
+                <a class="nav-link" data-toggle="tab" href="#tab-5">
+                  <h4>Brand Design</h4>
+                  <p>Creating a visual identity for a company or product</p>
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in">
+            <div class="tab-content">
+              <div class="tab-pane active show" id="tab-1">
+                <figure>
+                  <div class="card-container">                  
+                      <div class="img">
+                      <img src="<?php echo get_template_directory_uri();?>/assets/img/services/Final.png" alt="Image Description">
+                      </div>
+                    
+                      <ul class="horizontal-list">
+                        <li>Furniture Modeling</li>
+                        <li>Product Modeling</li>
+                        <li>Kitchen Appliances</li>
+                        <li>Low Poly Modeling</li>
+                        <li>High Poly Baking</li>
+                        <li>Cosmetic</li>
+                      </ul>
+                  </div>
+
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-2">
+                <figure>
+                  <div class="card-container">                  
+                        <div class="img">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/img/services/tbrender_edited.jpg" alt="Image Description">
+                        </div>
+                      
+                        <ul class="horizontal-list">
+                          <li>Animation ready 3D Model</li>
+                          <li>Game Ready Character</li>
+                          <li>Low Poly Model</li>
+                          <li>NFT Characters</li>
+                          <li>PBR Texturing</li>
+                          <li>Anime Characters</li>
+                          <li>Animals</li>
+                          <li>2D to 3D</li>
+                        </ul>
+                    </div>
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-3">
+                <figure>
+                  <div class="card-container">                  
+                        <div class="img">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/img/services/Untitled_00000_edited.png" alt="Image Description">
+                        </div>
+                      
+                        <ul class="horizontal-list">
+                          <li>3D Model WebAR</li>
+                          <li>NFT</li>
+                          <li>Fashion</li>
+                          <li>Architectural</li>
+                          <li>VR Ready Game Assets</li>
+                          <li>AR Ready 3D Models</li>
+                          <li>PBR Models</li>
+                        </ul>
+                    </div>
+                </figure>
+              </div>
+              <div class="tab-pane" id="tab-4">
+                <figure>
+                  <div class="card-container">                  
+                        <div class="img">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/img/services/Skull copy.png" alt="Image Description">
+                        </div>
+                      
+                        <ul class="horizontal-list">
+                          <li>Shoes Scans PP</li>
+                          <li>Shoes re-topology</li>
+                          <li>Human Scan PP</li>
+                          <li>Furniture Scan PP</li>
+                          <li>3D Print Ready Models</li>
+                          <li>3D Game Ready Models</li>
+                        </ul>
+                    </div>
+                </figure>
+              </div>
+
+              <div class="tab-pane" id="tab-5">
+                <figure>
+                  <div class="card-container">                  
+                        <div class="img">
+                        <img src="<?php echo get_template_directory_uri();?>/assets/img/services/Stationery_Mockup_1K.png" alt="Image Description">
+                        </div>
+                      
+                        <ul class="horizontal-list">
+                          <li>Logo Designing</li>
+                          <li>Mock-up</li>
+                          <li>Cloth Design</li>
+                          <li>Flyers</li>
+                          <li>Brochure Design</li>
+                          <li>Visiting Card</li>
+                          <li>Book Cover</li>
+                        </ul>
+                    </div>
+                </figure>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Features Section -->
+
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+          <div class="container">
+
+            <div class="row" data-aos="zoom-in">
+              <div class="col-lg-9 text-center text-lg-left">
+                <h3>We are Designer</h3>
+                <p> Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
+              </div>
+              <div class="col-lg-3 cta-btn-container text-center">
+                <a class="cta-btn align-middle" href="#portfolio">Call To Action</a>
+              </div>
+            </div>
+
+          </div>
+        </section><!-- End Cta Section -->
+
 
      <!-- ======= Team Section ======= -->
      <!-- <section id="team" class="team">
