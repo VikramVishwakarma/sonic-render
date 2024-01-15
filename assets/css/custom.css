@@ -224,7 +224,7 @@ section#portfolio {
 }
 
 #cta .cta-btn:hover {
-  background: #333;
+  background: #000;
   color: #fff;
 }
 
@@ -290,8 +290,9 @@ section#portfolio {
 /* Style member-info (name and position) */
 .testimonial-item .member-info {
   background: #f0f0b1;
+  border-radius: 8px;
   margin-top: 10px;
-  height: 23px;
+  height: 33px;
   overflow: hidden;
   text-align: center;
   transition: height 0.5s;
@@ -381,7 +382,10 @@ ul.horizontal-list {
     text-align: justify;
     width: 80%;
     height: auto;
-}
+  }
+  #about{
+    margin-bottom: 5%;
+  }
 }
 .img {
   text-align: -webkit-center;
@@ -404,4 +408,7 @@ ul.horizontal-list {
   color: #000000;
   font-family: 'Raleway';
 }
+
+
+
 
