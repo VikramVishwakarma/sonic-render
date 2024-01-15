@@ -615,7 +615,7 @@ section {
   transition: all 0.3s ease-in-out;
   border-radius: 4px;
   text-align: center;
-  border-bottom: 8px solid #fff;
+  border-bottom: 6px solid #fff;
 }
 
 .services .icon-box:hover {
@@ -879,6 +879,7 @@ section {
 
 .testimonials .testimonial-item h4 {
   font-size: 20px;
+  padding-top: 4px;
   color: #000;
   /* margin: 0 0 0 45px; */
   font-family: 'Raleway';
