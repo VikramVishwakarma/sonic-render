@@ -3,7 +3,6 @@ get_header();
 // template name:home
 ?>
 <!-- ======= Hero Section ======= -->
-
 <section id="hero">
   <div class="container">
     <div class="row" id='home'>
@@ -16,24 +15,8 @@ get_header();
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img" id="model1" data-aos="fade-left">
         <!-- <img src="assets/img/hero-img.png"  alt=""> -->
-        <model-viewer src="<?php echo get_template_directory_uri() ?>/forerunner_car.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.0" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo get_template_directory_uri() ?>/forerunner_car_poster.jpg">
+        <model-viewer src="<?php echo get_template_directory_uri() ?>/Winter_Jacket.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.0" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo get_template_directory_uri() ?>/forerunner_car_poster.jpg">
         </model-viewer>
-
-
-
-        <!-- <div class="container" id="modelBox">
-              <div class="card">
-                  <model-viewer class="myModel" src="<?php echo get_template_directory_uri() ?>/assets/old_rusty_car.glb"></model-viewer>
-              </div>
-              <div class="card">
-                  <model-viewer class="myModel" src="<?php echo get_template_directory_uri() ?>/assets/Table.glb"></model-viewer>
-              </div>
-              <div class="card">
-                  <model-viewer class="myModel" src="<?php echo get_template_directory_uri() ?>/assets/balkan__cs2_agent_model_romanov.glb"></model-viewer>
-              </div>
-              
-          </div> -->
-
       </div>
     </div>
   </div>
@@ -354,7 +337,7 @@ get_header();
 
                 if (is_file($model_path)) {
             ?>
-                  <div class="col-lg-4 col-md-6">
+                  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card" id="filter-app">
                       <!-- Add model-viewer with a common class for styling -->
                       <model-viewer class="card-img-top custom-model common-model model-container" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></model-viewer>
