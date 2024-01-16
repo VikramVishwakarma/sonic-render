@@ -170,7 +170,7 @@
 
   /* work  */
   section#portfolio {
-    background-color: #2b2d2e;
+    background-color: #000000;
   }
 
 
@@ -452,13 +452,28 @@ ul.horizontal-list {
 
   /* models  */
   a.btn.btn-transparent-bg.btn-icon {
-    background: rgba(115, 111, 111, 0.5); /* Transparent grey background */
+    background: rgba(115, 111, 111, 0.5);
     color: white;
     border: none;
     transition: background 0.3s ease;
- 
+    position: absolute;
+    margin-top: -37px;
 }
-
 a.btn.btn-transparent-bg.btn-icon:hover {
     background: #595656; /* Darker grey on hover */
+}
+.card .custom-model {
+  width: 100%; /* Set the width to 100% to make the model fill the card */
+  height: 200px; /* Adjust the height as needed */
+  object-fit: cover; /* Maintain aspect ratio and cover the entire space */
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0.25rem;
+}
+
+#modelRow .col-lg-4.col-md-6 {
+  padding-top: 16px;
 }
