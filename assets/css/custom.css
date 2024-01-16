@@ -412,3 +412,9 @@ ul.horizontal-list {
 
 
 
+@media (min-width: 992px) {
+  .features {
+    height: 690px;
+    padding-bottom: 40px;
+}
+}
