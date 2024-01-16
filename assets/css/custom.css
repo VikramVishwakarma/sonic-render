@@ -451,3 +451,14 @@ ul.horizontal-list {
 
 
   /* models  */
+  a.btn.btn-transparent-bg.btn-icon {
+    background: rgba(115, 111, 111, 0.5); /* Transparent grey background */
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+ 
+}
+
+a.btn.btn-transparent-bg.btn-icon:hover {
+    background: #595656; /* Darker grey on hover */
+}
