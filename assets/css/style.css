@@ -420,9 +420,6 @@ h1, h2, h3, h4, h5, h6 {
     background-attachment: fixed;
     height: 85vh;
 }
-.des {
-  margin-top: -7rem;
-}
 }
 
 @media (max-width: 992px) {
@@ -476,7 +473,7 @@ section {
 
 .about .container {
   padding: 60px 50px;
-  background-color: #06e2ff;
+  background-color: deepskyblue;
   border-radius: 0px 60px;
 }
 .img-fluid {
@@ -536,7 +533,7 @@ section {
 
 .features .nav-link {
   border: 0;
-  padding: 20px;
+  padding: 16px;
   transition: 0.3s;
   color: #364146;
   transition: 0.3s ease-in-out;
@@ -545,14 +542,14 @@ section {
 }
 
 .features .nav-link h4 {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   transition: 0.3s ease-in-out;
   color: #576971;
 }
 
 .features .nav-link p {
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 0;
 }
 
@@ -615,7 +612,7 @@ section {
   transition: all 0.3s ease-in-out;
   border-radius: 4px;
   text-align: center;
-  border-bottom: 8px solid #fff;
+  border-bottom: 6px solid #fff;
 }
 
 .services .icon-box:hover {
@@ -879,6 +876,7 @@ section {
 
 .testimonials .testimonial-item h4 {
   font-size: 20px;
+  padding-top: 4px;
   color: #000;
   /* margin: 0 0 0 45px; */
   font-family: 'Raleway';

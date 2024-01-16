@@ -1,7 +1,8 @@
   /* SHIFT */
-.nav-menu ul li a:hover {
+  .nav-menu ul li a:hover {
     color: #ffffff;
   }
+
   .nav-menu ul li a:after {
     display: block;
     position: absolute;
@@ -20,28 +21,32 @@
     z-index: -1;
     transition: opacity 0.3s, height 0.3s;
   }
+
   .nav-menu ul li a:hover:after {
     opacity: 1;
     visibility: visible;
     height: 100%;
   }
+
   /* Keyframes */
   @-webkit-keyframes fill {
     0% {
       width: 0%;
       height: 1px;
     }
+
     50% {
       width: 100%;
       height: 1px;
     }
+
     100% {
       width: 100%;
       height: 100%;
       background: #333;
     }
   }
-  
+
   /* Keyframes */
   @-webkit-keyframes circle {
     0% {
@@ -56,6 +61,7 @@
       background: #eee;
       border-radius: 100%;
     }
+
     100% {
       background: #aaa;
       height: 5000%;
@@ -69,186 +75,190 @@
       border-radius: 0;
     }
   }
-  
+
 
 
   /* font  */
   p.font-italic {
     color: #4c4c4c;
-}
+  }
 
 
-/* about  */
-section#features {
-    background: url(/assets/img/cta-bg.jpg);
-    background-size: cover; /* Adjusts the size of the background image */
+  /* header  */
 
-}
-
-
-/* header  */
-
-.container-fluid, .container-lg, .container-md, .container-sm, .container-xl {
+  .container-fluid,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl {
     width: 90%;
-}
+  }
 
-/* Apply sticky behavior to the header */
-#header.fixed-top {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 999;
-  transition: background-color 0.3s ease-in-out; /* Add a transition for a smooth effect */
-}
+  /* Apply sticky behavior to the header */
+  #header.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease-in-out;
+    /* Add a transition for a smooth effect */
+  }
 
-/* Adjust the background color when the header becomes sticky */
-#header.fixed-top.scrolled {
-  background-color: #ffffff; /* Change to your desired background color */
-  /* Other style adjustments for the sticky header */
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow effect */
-  /* Add more styles as needed */
-}
+  /* Adjust the background color when the header becomes sticky */
+  #header.fixed-top.scrolled {
+    background-color: #ffffff;
+    /* Change to your desired background color */
+    /* Other style adjustments for the sticky header */
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Optional: Add a shadow effect */
+    /* Add more styles as needed */
+  }
 
 
-/* icon  */
-.icofont-instagram:before {
+  /* icon  */
+  .icofont-instagram:before {
     content: "\ed46";
     background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     /* font-size: 200px; */
-}
-.icofont-twitter:before {
+  }
+
+  .icofont-twitter:before {
     content: "\ed7a";
     color: cyan;
-}
-.icofont-facebook:before {
+  }
+
+  .icofont-facebook:before {
     content: "\ed37";
     color: blue;
-}
+  }
 
-.icofont-linkedin:before {
+  .icofont-linkedin:before {
     content: "\ed4d";
     color: #0077b5;
-}
-  
-
-@media(min-width: 992px) and (max-width: 1400px) {
-  #model1{
-    width: 400px !important;
-    height: 550px;
   }
-}
-
-p {
-  font-family: 'Poppins';
-}
 
 
-#services img {
-  width: 43%;
-  padding-bottom: 10px;
-}
+  @media(min-width: 992px) and (max-width: 1400px) {
+    #model1 {
+      width: 400px !important;
+      height: 550px;
+    }
+  }
 
-.active {
-  color: navy; /* Change color to indicate active selection */
-  /* Add any other styles you want for the active state */
-}
-
-
-
-
-/* work  */
-section#portfolio {
-  background-color: #2b2d2e;
-}
+  p {
+    font-family: 'Poppins';
+  }
 
 
+  #services img {
+    width: 43%;
+    padding-bottom: 10px;
+  }
 
-
-
-/* Remove focus styles for both previous and next buttons */
-.owl-prev:focus,
-.owl-next:focus,
-.owl-prev:active,
-.owl-next:active {
-  outline: none; /* Remove the default outline */
-  /* Add any other styles you want to apply when focused or active, or leave it empty */
-}
-
-
-.testimonials .section-title p {
-  margin-bottom: 0;
-  color: #292929;
-  font-style: italic;
-}
-
-#testimonials .container .section-title #who {
-  font-size: 18px;
-  margin-bottom: 20px;
-  padding-bottom: 0;
-  font-style: italic;
-  color: navy;
-}
+  .active {
+    color: navy;
+    /* Change color to indicate active selection */
+    /* Add any other styles you want for the active state */
+  }
 
 
 
 
-/* CTA  */
-
-
-#cta .container {
-  position: relative;
-  z-index: 2;
-}
-
-#cta .row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-#cta h3 {
-  color: #fff;
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-#cta p {
-  color: #fff;
-  font-size: 1.1rem;
-  margin-bottom: 30px;
-}
-
-#cta .cta-btn {
-  background: #ea0000;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  border-radius: 25px;
-  transition: all 0.3s ease;
-}
-
-#cta .cta-btn:hover {
-  background: #333;
-  color: #fff;
-}
-
-
-#title{
-  margin-top: -70px;
-}
+  /* work  */
+  section#portfolio {
+    background-color: #2b2d2e;
+  }
 
 
 
-/* team  */
-.owl-carousel .owl-dots.disabled, .owl-carousel .owl-nav.disabled {
-  display: block !important;
-}
 
-/* .member-info {
+
+  /* Remove focus styles for both previous and next buttons */
+  .owl-prev:focus,
+  .owl-next:focus,
+  .owl-prev:active,
+  .owl-next:active {
+    outline: none;
+    /* Remove the default outline */
+    /* Add any other styles you want to apply when focused or active, or leave it empty */
+  }
+
+
+  .testimonials .section-title p {
+    margin-bottom: 0;
+    color: #292929;
+    font-style: italic;
+  }
+
+  #testimonials .container .section-title #who {
+    font-size: 18px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+    font-style: italic;
+    color: #00496d;
+  }
+
+
+
+
+  /* CTA  */
+
+
+  #cta .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  #cta .row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #cta h3 {
+    color: #fff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  #cta p {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+  }
+
+  #cta .cta-btn {
+    background: #ea0000;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+  }
+
+  #cta .cta-btn:hover {
+    background: #000;
+    color: #fff;
+  }
+
+
+  #title {
+    margin-top: -70px;
+  }
+
+
+
+  /* team  */
+  .owl-carousel .owl-dots.disabled,
+  .owl-carousel .owl-nav.disabled {
+    display: block !important;
+  }
+
+  /* .member-info {
   background: #f0f0b1;
   height: 23px;
   overflow: hidden;
@@ -261,74 +271,194 @@ section#portfolio {
   text-align: center;
 } */
 
-#testimonials .container .section-title h2 {
-  font-size: 45px;
-  font-weight: 400;
-  margin-bottom: 0px;
-  padding-bottom: 0;
-  font-family: "Poppins", sans-serif;
-  color: #000000;
+  #testimonials .container .section-title h2 {
+    font-size: 45px;
+    font-weight: 600;
+    margin-bottom: 0px;
+    padding-bottom: 0;
+    font-family: "Poppins", sans-serif;
+    color: #000000;
+  }
+
+
+
+  /* Style the testimonial-item as profile cards */
+  .testimonial-item {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    text-align: center;
+    transition: box-shadow 0.3s ease;
+    /* Apply transition for box-shadow */
+  }
+
+  .testimonial-item:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Adjusted shadow on hover */
+  }
+
+  /* Adjust styles for the profile image */
+  .testimonial-item .pic img {
+    border-radius: 50%;
+    width: 150px;
+    /* Adjust as needed */
+    height: 150px;
+    /* Adjust as needed */
+    object-fit: cover;
+  }
+
+  /* Style member-info (name and position) */
+  .testimonial-item .member-info {
+    background: #f0f0b1;
+    border-radius: 8px;
+    margin-top: 10px;
+    height: 33px;
+    overflow: hidden;
+    text-align: center;
+    transition: height 0.5s;
+  }
+
+  .testimonial-item:hover .member-info {
+    height: 100px;
+    text-align: center;
+    transition: height 0.7s;
+  }
+
+
+
+  .testimonial-item h4 {
+    margin-bottom: 5px;
+  }
+
+  .testimonial-item span {
+    color: #777;
+    font-size: 14px;
+  }
+
+  /* Style social links */
+  .testimonial-item .social {
+    margin-top: 15px;
+  }
+
+  .testimonial-item .social a {
+    display: inline-block;
+    margin: 0 5px;
+    color: #333;
+    font-size: 20px;
+  }
+
+
+
+  /* four options  */
+  /* .card-container img {
+  width: 226px;
 }
 
+ul.horizontal-list {
+  text-align: left;
+  margin-left: 27%;
+} */
+
+  .card-container .horizontal-list {
+    list-style: none;
+    padding: 15px;
+    margin: 0;
+  }
+
+  .card-container .horizontal-list li {
+    display: -webkit-inline-box;
+    padding: 10px;
+    height: 36px;
+    font-size: 13px;
+    margin: 1px;
+    border-radius: 25px;
+    background-color: #f1f1f1;
+  }
+
+  .card-container .img img {
+    max-width: 100%;
+    /* Ensure the image inside the card does not exceed the container */
+    height: auto;
+    padding: 8px 0px;
+  }
+
+  .card-container {
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: justify;
+  }
+
+  @media (min-width: 992px) {
+    .card-container .img img {
+      max-width: 50%;
+      height: auto;
+      padding: 8px 0px;
+      display: block;
+      text-align: center;
+    }
+
+    .card-container {
+      margin: 5% 20%;
+      border-radius: 10px;
+      box-shadow: 0 11px 12px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      text-align: justify;
+      width: 80%;
+      height: auto;
+    }
+
+    #about {
+      margin-bottom: 5%;
+    }
+  }
+
+  .img {
+    text-align: -webkit-center;
+    background: black;
+  }
 
 
-/* Style the testimonial-item as profile cards */
-.testimonial-item {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
-  padding: 20px;
-  text-align: center;
-  transition: box-shadow 0.3s ease; /* Apply transition for box-shadow */
+  .horizontal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid #ddd;
+    /* Add a border at the top of the list */
+    padding-top: 10px;
+    /* Add some padding for spacing */
+  }
+
+
+
+  #features .container .section-title h2 {
+    font-weight: 600;
+    color: #000000;
+    font-family: 'Raleway';
+  }
+
+
+
+
+  @media (min-width: 992px) {
+    .features {
+      height: 690px;
+      padding-bottom: 40px;
+    }
+  }
+
+
+  /* models  */
+  a.btn.btn-transparent-bg.btn-icon {
+    background: rgba(115, 111, 111, 0.5); /* Transparent grey background */
+    color: white;
+    border: none;
+    transition: background 0.3s ease;
+ 
 }
 
-.testimonial-item:hover {
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Adjusted shadow on hover */
+a.btn.btn-transparent-bg.btn-icon:hover {
+    background: #595656; /* Darker grey on hover */
 }
-
-/* Adjust styles for the profile image */
-.testimonial-item .pic img {
-  border-radius: 50%;
-  width: 150px; /* Adjust as needed */
-  height: 150px; /* Adjust as needed */
-  object-fit: cover;
-}
-
-/* Style member-info (name and position) */
-.testimonial-item .member-info {
-  background: #f0f0b1;
-  height: 23px;
-  overflow: hidden;
-  text-align: center;
-  transition: height 0.3s; /* Apply transition for height */
-}
-
-.testimonial-item:hover .member-info {
-  height: auto;
-  text-align: center;
-}
-
-
-
-.testimonial-item h4 {
-  margin-bottom: 5px;
-}
-
-.testimonial-item span {
-  color: #777;
-  font-size: 14px;
-}
-
-/* Style social links */
-.testimonial-item .social {
-  margin-top: 15px;
-}
-
-.testimonial-item .social a {
-  display: inline-block;
-  margin: 0 5px;
-  color: #333;
-  font-size: 20px;
-}
-

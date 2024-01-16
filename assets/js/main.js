@@ -189,9 +189,9 @@ $(document).ready(function() {
   $('.owl-carousel').owlCarousel({
     loop:true,
     margin:10,
-    // autoplay:true,
-    // autoplayTimeout:1200,
-    // autoplayHoverPause:true,
+    autoplay:true,
+    autoplayTimeout:1200,
+    autoplayHoverPause:true,
     nav:true,
     responsive:{
         0:{
