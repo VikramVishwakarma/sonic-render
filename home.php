@@ -740,7 +740,7 @@ get_header();
       </div>
 
       <div class="container mt-4">
-        <div class="card-deck" id="modelContainer">
+        <div class="card-deck">
           <?php
           $arr = array();
           $upload_dir = wp_upload_dir();
@@ -756,15 +756,17 @@ get_header();
 
               if (is_file($model_path)) {
           ?>
-                <div class="card">
+                <div class="card mb-4">
                   <!-- Add model-viewer with a common class for styling -->
                   <model-viewer class="card-img-top custom-model common-model" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)"></model-viewer>
 
                   <div class="card-body">
-                    <h5 class="card-title">Model Title</h5>
-                    <p class="card-text">Description of the 3D model.</p>
+                    <!-- <h5 class="card-title">Model Title</h5>
+                    <p class="card-text">Description of the 3D model.</p> -->
                     <!-- Add a button for linking -->
-                    <a href="#" class="btn btn-primary">View Details</a>
+                    <a href="#" class="btn btn-transparent-bg btn-icon">
+                      <i class="fas fa-eye"></i>
+                    </a>
                   </div>
                 </div>
           <?php
@@ -774,7 +776,6 @@ get_header();
           ?>
         </div>
       </div>
-
 
     </div>
   </section><!-- End Portfolio Section -->
@@ -824,7 +825,7 @@ get_header();
   }
 
   // Add JavaScript to rotate only when the model has the 'rotate-on-hover' class
-  const modelContainer = document.getElementById('modelContainer');
+  const modelContainer = document.querySelector('.card-deck');
 
   modelContainer.addEventListener('mousemove', function(event) {
     const modelViewers = document.querySelectorAll('.rotate-on-hover');
