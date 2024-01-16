@@ -327,6 +327,57 @@ get_header();
     </section> -->
   <!-- End Team Section -->
 
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container">
+
+      <div class="section-title" data-aos="fade-up">
+        <h2>OUR WORK</h2>
+        <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
+      </div>
+
+      <div class="row">
+        <div class="container mt-4">
+          <div class="row" id="modelRow">
+            <?php
+            $arr = array();
+            $upload_dir = wp_upload_dir();
+
+            $user_dirname = $upload_dir['basedir'] . '/model/';
+
+            if (is_dir($user_dirname)) {
+              $model_files = scandir($user_dirname);
+              $model_files = array_diff($model_files, array('.', '..'));
+
+              foreach ($model_files as $model_file) {
+                $model_path = $user_dirname . $model_file;
+
+                if (is_file($model_path)) {
+            ?>
+                  <div class="col-lg-4 col-md-6">
+                    <div class="card" id="filter-app">
+                      <!-- Add model-viewer with a common class for styling -->
+                      <model-viewer class="card-img-top custom-model common-model model-container" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></model-viewer>
+
+                      <div class="card-body">
+                        <!-- Add a button for linking -->
+                        <a href="#" class="btn btn-transparent-bg btn-icon">
+                          <i class="fas fa-eye"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+            <?php
+                }
+              }
+            }
+            ?>
+          </div>
+        </div>
+
+      </div>
+  </section><!-- End Portfolio Section -->
+
   <!-- ======= Testimonials Section ======= -->
   <section id="testimonials" class="testimonials">
     <div class="container">
@@ -719,66 +770,7 @@ get_header();
     </div>
   </section><!-- End Contact Section -->
 
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
 
-      <div class="section-title" data-aos="fade-up">
-        <h2>OUR WORK</h2>
-        <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="container mt-4">
-        <div class="card-deck">
-          <?php
-          $arr = array();
-          $upload_dir = wp_upload_dir();
-
-          $user_dirname = $upload_dir['basedir'] . '/model/';
-
-          if (is_dir($user_dirname)) {
-            $model_files = scandir($user_dirname);
-            $model_files = array_diff($model_files, array('.', '..'));
-
-            foreach ($model_files as $model_file) {
-              $model_path = $user_dirname . $model_file;
-
-              if (is_file($model_path)) {
-          ?>
-                <div class="card mb-4">
-                  <!-- Add model-viewer with a common class for styling -->
-                  <model-viewer class="card-img-top custom-model common-model" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)"></model-viewer>
-
-                  <div class="card-body">
-                    <!-- <h5 class="card-title">Model Title</h5>
-                    <p class="card-text">Description of the 3D model.</p> -->
-                    <!-- Add a button for linking -->
-                    <a href="#" class="btn btn-transparent-bg btn-icon">
-                      <i class="fas fa-eye"></i>
-                    </a>
-                  </div>
-                </div>
-          <?php
-              }
-            }
-          }
-          ?>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
 
 </main><!-- End #main -->
 <?php get_footer(); ?>
@@ -825,10 +817,10 @@ get_header();
   }
 
   // Add JavaScript to rotate only when the model has the 'rotate-on-hover' class
-  const modelContainer = document.querySelector('.card-deck');
+  const modelRow = document.getElementById('modelRow');
 
-  modelContainer.addEventListener('mousemove', function(event) {
-    const modelViewers = document.querySelectorAll('.rotate-on-hover');
+  modelRow.addEventListener('mousemove', function(event) {
+    const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
 
     modelViewers.forEach(modelViewer => {
       const boundingRect = modelViewer.getBoundingClientRect();
