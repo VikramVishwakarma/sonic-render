@@ -739,30 +739,40 @@ get_header();
         </div>
       </div>
 
+      <div class="container mt-4">
+        <div class="card-deck" id="modelContainer">
+          <?php
+          $arr = array();
+          $upload_dir = wp_upload_dir();
 
-      <div class="model" id="modelContainer">
-        <?php
-        $arr = array();
-        $upload_dir = wp_upload_dir();
+          $user_dirname = $upload_dir['basedir'] . '/model/';
 
-        $user_dirname = $upload_dir['basedir'] . '/model/';
+          if (is_dir($user_dirname)) {
+            $model_files = scandir($user_dirname);
+            $model_files = array_diff($model_files, array('.', '..'));
 
-        if (is_dir($user_dirname)) {
-          $model_files = scandir($user_dirname);
-          $model_files = array_diff($model_files, array('.', '..'));
+            foreach ($model_files as $model_file) {
+              $model_path = $user_dirname . $model_file;
 
-          foreach ($model_files as $model_file) {
-            $model_path = $user_dirname . $model_file;
+              if (is_file($model_path)) {
+          ?>
+                <div class="card">
+                  <!-- Add model-viewer with a common class for styling -->
+                  <model-viewer class="card-img-top custom-model common-model" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)"></model-viewer>
 
-            if (is_file($model_path)) {
-        ?>
-              <!-- Add model-viewer with a common class for styling -->
-              <model-viewer class="custom-model common-model" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)"></model-viewer>
-        <?php
+                  <div class="card-body">
+                    <h5 class="card-title">Model Title</h5>
+                    <p class="card-text">Description of the 3D model.</p>
+                    <!-- Add a button for linking -->
+                    <a href="#" class="btn btn-primary">View Details</a>
+                  </div>
+                </div>
+          <?php
+              }
             }
           }
-        }
-        ?>
+          ?>
+        </div>
       </div>
 
 
@@ -827,7 +837,7 @@ get_header();
       // Adjust the rotation speed by changing the multiplier (e.g., 1 for normal speed)
       const rotationSpeed = 1;
 
-      modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg 0 1m`;
+      modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
     });
   });
 </script>
