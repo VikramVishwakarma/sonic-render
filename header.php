@@ -36,6 +36,8 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
   <!-- Include Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  
   <style>
     header.fixed-top {
       background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/background/background.jpg');
@@ -93,7 +95,7 @@
         <ul>
           <li class="active"><a href="#home">Home</a></li>
           <li class="drop-down"><a href="#about">About</a>
-            <ul>
+            <!-- <ul>
               <li><a href="#about">About Us</a></li>
               <li><a href="#team">Team</a></li>
               <li><a href="#testimonials">Testimonials</a></li>
@@ -106,7 +108,7 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li>
-            </ul>
+            </ul> -->
           </li>
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
