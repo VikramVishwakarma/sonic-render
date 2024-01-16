@@ -477,3 +477,17 @@ a.btn.btn-transparent-bg.btn-icon:hover {
 #modelRow .col-lg-4.col-md-6 {
   padding-top: 16px;
 }
+
+
+
+
+
+#portfolio .section-title h2 {
+  font-size: 45px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+  color: #ffffff;
+  font-family: fantasy;
+  letter-spacing: 2px;
+}
