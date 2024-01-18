@@ -474,11 +474,11 @@ a.btn.btn-transparent-bg.btn-icon:hover {
   }
 
   /* SHIFT */
-  #navbarNav ul li a:hover {
+  #navbarNav ul li:not(.active) a:hover {
     color: #ffffff;
   }
-
-  #navbarNav ul li a:after {
+  
+  #navbarNav ul li:not(.active) a:after {
     display: block;
     position: absolute;
     top: 0;
@@ -496,12 +496,13 @@ a.btn.btn-transparent-bg.btn-icon:hover {
     z-index: -1;
     transition: opacity 0.3s, height 0.3s;
   }
-
-  #navbarNav ul li a:hover:after {
+  
+  #navbarNav ul li:not(.active) a:hover:after {
     opacity: 1;
     visibility: visible;
     height: 100%;
   }
+  
 
   /* Keyframes */
   @-webkit-keyframes fill {
@@ -612,7 +613,4 @@ a.nav-link {
     font-size: 17px;
     font-family: "Poppins", sans-serif;
 }
-
-
-
 
