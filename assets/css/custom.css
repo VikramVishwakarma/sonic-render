@@ -1,83 +1,4 @@
-  /* SHIFT */
-  .nav-menu ul li a:hover {
-    color: #ffffff;
-  }
-
-  .nav-menu ul li a:after {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: auto;
-    width: 100%;
-    height: 1px;
-    content: '.';
-    color: transparent;
-    background: #03d5e3;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -1;
-    transition: opacity 0.3s, height 0.3s;
-  }
-
-  .nav-menu ul li a:hover:after {
-    opacity: 1;
-    visibility: visible;
-    height: 100%;
-  }
-
-  /* Keyframes */
-  @-webkit-keyframes fill {
-    0% {
-      width: 0%;
-      height: 1px;
-    }
-
-    50% {
-      width: 100%;
-      height: 1px;
-    }
-
-    100% {
-      width: 100%;
-      height: 100%;
-      background: #333;
-    }
-  }
-
-  /* Keyframes */
-  @-webkit-keyframes circle {
-    0% {
-      width: 1px;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
-      height: 1px;
-      z-index: -1;
-      background: #eee;
-      border-radius: 100%;
-    }
-
-    100% {
-      background: #aaa;
-      height: 5000%;
-      width: 5000%;
-      z-index: -1;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-      border-radius: 0;
-    }
-  }
-
-
-
+  
   /* font  */
   p.font-italic {
     color: #4c4c4c;
@@ -538,3 +459,160 @@ a.btn.btn-transparent-bg.btn-icon:hover {
 }
 
 /* nav_test  */
+@media (min-width: 992px){
+  .navbar-expand-lg .navbar-collapse {
+    display: -ms-flexbox!important;
+    display: flex!important;
+    -ms-flex-preferred-size: auto;
+    flex-basis: auto;
+    justify-content: end;
+  }
+  .navbar-nav .nav-item.active .nav-link {
+    color: #06e2ff !important;
+    
+    border-bottom: 4px solid #06e2ff;
+  }
+
+  /* SHIFT */
+  #navbarNav ul li a:hover {
+    color: #ffffff;
+  }
+
+  #navbarNav ul li a:after {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+    height: 1px;
+    content: '.';
+    color: transparent;
+    background: #03d5e3;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s, height 0.3s;
+  }
+
+  #navbarNav ul li a:hover:after {
+    opacity: 1;
+    visibility: visible;
+    height: 100%;
+  }
+
+  /* Keyframes */
+  @-webkit-keyframes fill {
+    0% {
+      width: 0%;
+      height: 1px;
+    }
+
+    50% {
+      width: 100%;
+      height: 1px;
+    }
+
+    100% {
+      width: 100%;
+      height: 100%;
+      background: #333;
+    }
+  }
+
+  /* Keyframes */
+  @-webkit-keyframes circle {
+    0% {
+      width: 1px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 1px;
+      z-index: -1;
+      background: #eee;
+      border-radius: 100%;
+    }
+
+    100% {
+      background: #aaa;
+      height: 5000%;
+      width: 5000%;
+      z-index: -1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      border-radius: 0;
+    }
+  }
+}
+
+li.nav-item {
+  display: flex;
+  justify-content: center;
+}
+
+a.nav-link {
+  font-family: 'Poppins';
+  letter-spacing: 2px;
+}
+
+#logo {
+  height: auto;
+  width: auto;
+  background: white;
+  padding: 4px;
+  margin: 0;
+  max-height: 46px;
+  border: 2px solid skyblue;
+  border-radius: 7px;
+}
+
+
+  /* Apply sticky behavior to the header */
+  #Nav_id {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease-in-out;
+    /* Add a transition for a smooth effect */
+  }
+
+  /* Adjust the background color when the header becomes sticky */
+  #Nav_id {
+    background-color: #ffffff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+   
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    color: black; /* Set the default color for non-active items */
+  }
+  
+  .navbar-nav .nav-item.active .nav-link {
+    color: #06e2ff !important;
+  }
+
+  #navbarNav a {
+    margin: -15px 0px;
+    height: 73px;
+    display: block;
+    position: relative;
+    letter-spacing: 2.2px;
+    color: black;
+    padding: 21px 15px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+}
+
+
+
+
