@@ -370,7 +370,7 @@ h1, h2, h3, h4, h5, h6 {
   background-position: right top;
   margin-top: 40px;
   padding: 60px 0;
-  background-color: #e2f5ff;
+  background-color: #f5fcff;
 }
 #hero h1 {
   margin: 0 0 20px 0;
@@ -1528,13 +1528,13 @@ section {
 --------------------------------------------------------------*/
 #footer {
   background: #f7f8f9;
-  padding: 0 0 30px 0;
+  /* padding: 0 0 30px 0; */
   color: #364146;
   font-size: 14px;
 }
 
 #footer .footer-top {
-  background: #fff;
+  background: #201e1e;
   padding: 60px 0 30px 0;
   border-top: 2px solid #e9ecee;
   border-bottom: 2px solid #e9ecee;
@@ -1550,6 +1550,7 @@ section {
   padding: 2px 0 2px 0;
   line-height: 1;
   font-weight: 700;
+  color: #add9ff;
 }
 
 #footer .footer-top .footer-info p {
@@ -1557,7 +1558,7 @@ section {
   line-height: 24px;
   margin-bottom: 0;
   font-family: "Raleway", sans-serif;
-  color: #576971;
+  color: #fcfeff;
 }
 
 #footer .footer-top .social-links a {
@@ -1584,7 +1585,7 @@ section {
 #footer .footer-top h4 {
   font-size: 16px;
   font-weight: 600;
-  color: #364146;
+  color: white;
   position: relative;
   padding-bottom: 12px;
 }
@@ -1618,14 +1619,14 @@ section {
 }
 
 #footer .footer-top .footer-links ul a {
-  color: #576971;
+  color: #b9b9b9;
   transition: 0.3s;
   display: inline-block;
   line-height: 1;
 }
 
 #footer .footer-top .footer-links ul a:hover {
-  color: #009cea;
+  color: #add9ff;
 }
 
 #footer .footer-top .footer-newsletter form {
@@ -1664,7 +1665,7 @@ section {
 
 #footer .copyright {
   text-align: center;
-  padding-top: 30px;
+  /* padding-top: 30px; */
 }
 
 #footer .credits {
