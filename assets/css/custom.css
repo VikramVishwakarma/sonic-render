@@ -190,7 +190,7 @@
 
   .testimonials .section-title p {
     margin-bottom: 0;
-    color: #292929;
+    color: #ffffff;
     font-style: italic;
   }
 
@@ -311,14 +311,14 @@
 
   /* Style member-info (name and position) */
   .testimonial-item .member-info {
-    background: #f0f0b1;
+    background: #def;
     border-radius: 8px;
     margin-top: 10px;
     height: 33px;
     overflow: hidden;
     text-align: center;
     transition: height 0.5s;
-  }
+}
 
   .testimonial-item:hover .member-info {
     height: 100px;
@@ -491,3 +491,50 @@ a.btn.btn-transparent-bg.btn-icon:hover {
   font-family: fantasy;
   letter-spacing: 2px;
 }
+#footer p {
+  color: white;
+  width: 452px;
+}
+
+
+/* navbar  */
+@media only screen and (max-width: 768px) {
+  .nav-menu {
+    display: block;
+  }
+
+  .nav-menu ul {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu ul li {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .drop-down ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .drop-down:hover ul {
+    display: block;
+  }
+}
+
+
+/* model */
+#modal_model{
+  background: #91dfd4;
+}
+#modal_info h4 {
+  font-family: fantasy;
+  font-size: 2rem;
+}
+
+/* nav_test  */
