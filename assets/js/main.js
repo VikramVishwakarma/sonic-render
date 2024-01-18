@@ -190,7 +190,7 @@ $(document).ready(function() {
     loop:true,
     margin:10,
     autoplay:true,
-    autoplayTimeout:1200,
+    autoplayTimeout:1000,
     autoplayHoverPause:true,
     nav:true,
     responsive:{
