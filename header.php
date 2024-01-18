@@ -38,6 +38,9 @@
         <!-- Bootstrap 5 JS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
 
+        <!-- font awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-dT9xobUJTDuH9eexQ+Us9ByBF0rHfD5cxUtd2dtA6VHJ8r62F0b4BFq/9H2F6uGyU2D3FojW9mALmoW/m9I53w==" crossorigin="anonymous" />
+        <script src="https://kit.fontawesome.com/e6535bfde2.js" crossorigin="anonymous"></script>
 
         <style>
           #Nav_id{
@@ -48,8 +51,8 @@
 
 
         section#testimonials {
-          background-image: url('<?php echo get_template_directory_uri()?>/assets/img/background/team_bg.jpg');
-          background-position: 100% 100%;
+          background-image: url('<?php echo get_template_directory_uri()?>/assets/img/background/bn17.jpg');
+          background-position: center ;
           background-size: cover;
           background-attachment: fixed;
           height: 700px;
