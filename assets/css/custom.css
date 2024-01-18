@@ -552,7 +552,7 @@ a.btn.btn-transparent-bg.btn-icon:hover {
   }
 }
 
-li.nav-item {
+#Nav_id li.nav-item {
   display: flex;
   justify-content: center;
 }
