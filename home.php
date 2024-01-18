@@ -341,12 +341,12 @@ get_header();
                   <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
                     <div class="card" id="filter-app">
                       <!-- Add model-viewer with a common class for styling -->
-                      <!-- <model-viewer class="card-img-top custom-model common-model model-container" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></model-viewer> -->
+                      <model-viewer class="card-img-top custom-model common-model model-container" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></model-viewer>
 
                       <div class="card-body">
                         <!-- Add a button for linking -->
                         <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                          <i class="fas fa-eye"></i>
+                        <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
                         </a>
                       </div>
                     </div>
