@@ -452,6 +452,8 @@ a.btn.btn-transparent-bg.btn-icon:hover {
 /* model */
 #modal_model{
   background: #91dfd4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border: 4px solid white;
 }
 #modal_info h4 {
   font-family: fantasy;
@@ -558,7 +560,7 @@ a.btn.btn-transparent-bg.btn-icon:hover {
   justify-content: center;
 }
 
-a.nav-link {
+#navbarNav a.nav-link {
   font-family: 'Poppins';
   letter-spacing: 2px;
 }
