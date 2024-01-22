@@ -322,104 +322,136 @@ get_header();
         <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
       </div>
       <!-- Add a dummy image as a placeholder -->
-<!-- Add a dummy image as a placeholder -->
-<!-- Add a dummy image as a placeholder -->
+      <!-- Add a dummy image as a placeholder -->
+      <!-- Add a dummy image as a placeholder -->
 
 
-<!-- Add a dummy image as a placeholder -->
-<img src="path/to/dummy-image.jpg" alt="Dummy Image" class="dummy-image" />
+      <!-- Add a dummy image as a placeholder -->
+      <img src="path/to/dummy-image.jpg" alt="Dummy Image" class="dummy-image" />
 
-<div class="row">
-    <div class="container mt-4">
-        <div class="row" id="modelRow">
-            <?php
-              $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
-              $user_dirname = get_template_directory_uri() . '/model/';
-  
-              if (is_dir($theme_dir . '/model/')) {
-                  $model_files = scandir($theme_dir . '/model/');
-                  $model_files = array_diff($model_files, array('.', '..'));
-            foreach ($model_files as $index => $model_file) {
-                $model_path = $theme_dir . '/model/' . $model_file;
+      <div class="row">
+  <div class="container mt-4">
+    <div class="row" id="modelRow">
+      <?php
+      $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
+      $user_dirname = get_template_directory_uri() . '/model/';
 
-                if (is_file($model_path)) {
-                    ?>
-                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                        <div class="card" id="filter-app">
-                            <!-- Add model-viewer with a common class for styling -->
-                            <model-viewer class="card-img-top custom-model common-model model-container" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" data-rotate-y="0deg"></model-viewer>
+      if (is_dir($theme_dir . '/model/')) {
+        $model_files = scandir($theme_dir . '/model/');
+        $model_files = array_diff($model_files, array('.', '..'));
+        foreach ($model_files as $index => $model_file) {
+          $model_path = $theme_dir . '/model/' . $model_file;
 
-                            <div class="card-body">
-                                <!-- Add a button for linking -->
-                                <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                                    <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <?php
-                }
-            }}
-            ?>
-        </div>
+          if (is_file($model_path)) {
+      ?>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+              <div class="card" id="filter-app">
+                <!-- Add a static image tag for the initial image -->
+                <img class="card-img-top custom-image common-model" 
+                src="<?=get_template_directory_uri()?>/test.png"  
+                  alt="A 2D image" 
+                  style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+
+                <!-- Add model-viewer with a common class for styling -->
+                <model-viewer class="card-img-top custom-model common-model model-container" 
+                  alt="A 3D model" 
+                  style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" 
+                  data-rotate-y="0deg" 
+                  data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>">
+                </model-viewer>
+
+                <div class="card-body">
+                  <!-- Add a button for linking -->
+                  <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
+                    <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+      <?php
+          }
+        }
+      }
+      ?>
     </div>
+  </div>
 </div>
 
-
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    // Function to handle model loading on hover
-    function handleModelLoading(modelViewer) {
-      modelViewer.addEventListener('mouseenter', function () {
-        var src = this.getAttribute('data-src');
-        this.setAttribute('src', src);
-        startRotation(this);
+document.addEventListener('DOMContentLoaded', function () {
+  function startRotation(modelViewer) {
+    modelViewer.classList.add('rotate-on-hover');
+  }
+
+  function stopRotation(modelViewer) {
+    modelViewer.classList.remove('rotate-on-hover');
+  }
+
+  function handleImageVisibility(card) {
+    var image = card.querySelector('.custom-image');
+    var modelViewer = card.querySelector('.custom-model');
+
+    card.addEventListener('mouseenter', function () {
+      image.style.display = 'none';
+
+      // Check if the model has already been loaded
+      if (!modelViewer.hasLoadedModel) {
+        modelViewer.setAttribute('src', modelViewer.getAttribute('data-src'));
+        modelViewer.hasLoadedModel = true;
+      }
+
+      modelViewer.style.display = 'block';
+      startRotation(modelViewer);
+    });
+
+    card.addEventListener('mouseleave', function () {
+      image.style.display = 'block';
+      modelViewer.style.display = 'none';
+      stopRotation(modelViewer);
+    });
+  }
+
+  function handleModelViewerRotation(modelRow) {
+    modelRow.addEventListener('mousemove', throttle(function (event) {
+      const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
+
+      modelViewers.forEach(modelViewer => {
+        const boundingRect = modelViewer.getBoundingClientRect();
+        const offsetX = event.clientX - boundingRect.left;
+        const percentageX = (offsetX / boundingRect.width) * 100;
+
+        const rotationSpeed = 1;
+
+        modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
       });
+    }, 50)); // Adjust the throttle interval as needed
+  }
 
-      modelViewer.addEventListener('mouseleave', function () {
-        stopRotation(this);
-      });
-    }
+  function throttle(func, limit) {
+    let inThrottle;
+    return function () {
+      const args = arguments;
+      const context = this;
+      if (!inThrottle) {
+        func.apply(context, args);
+        inThrottle = true;
+        setTimeout(() => inThrottle = false, limit);
+      }
+    };
+  }
 
-    // Function to handle model-viewer rotation on mouse movement
-    function handleModelViewerRotation(modelRow) {
-      modelRow.addEventListener('mousemove', function (event) {
-        const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
+  var cards = document.querySelectorAll('.card');
+  var modelRow = document.getElementById('modelRow');
 
-        modelViewers.forEach(modelViewer => {
-          const boundingRect = modelViewer.getBoundingClientRect();
-          const offsetX = event.clientX - boundingRect.left;
-          const percentageX = (offsetX / boundingRect.width) * 100;
-
-          // Adjust the rotation speed by changing the multiplier (e.g., 1 for normal speed)
-          const rotationSpeed = 1;
-
-          modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
-        });
-      });
-    }
-
-    // Function to start rotation on mouse hover
-    function startRotation(modelViewer) {
-      // Add class to trigger rotation
-      modelViewer.classList.add('rotate-on-hover');
-    }
-
-    // Function to stop rotation when mouse leaves
-    function stopRotation(modelViewer) {
-      // Remove class to stop rotation
-      modelViewer.classList.remove('rotate-on-hover');
-    }
-
-    // Get all elements with class 'custom-model'
-    var modelViewers = document.querySelectorAll('.custom-model');
-    var modelRow = document.getElementById('modelRow');
-
-    // Apply the loading and rotation handling functions to each model viewer
-    modelViewers.forEach(handleModelLoading);
-    handleModelViewerRotation(modelRow);
-  });
+  cards.forEach(handleImageVisibility);
+  handleModelViewerRotation(modelRow);
+});
 </script>
+
+
+
+
+
 
 
 
@@ -856,8 +888,4 @@ get_header();
   sections.forEach((section) => {
     observer.observe(section);
   });
-
-
-
-
 </script>
