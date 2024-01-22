@@ -321,79 +321,109 @@ get_header();
         <h2>OUR WORK</h2>
         <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
       </div>
+      <!-- Add a dummy image as a placeholder -->
+<!-- Add a dummy image as a placeholder -->
+<!-- Add a dummy image as a placeholder -->
 
-      <div class="row">
-        <div class="container mt-4">
-          <div class="row" id="modelRow">
+
+<!-- Add a dummy image as a placeholder -->
+<img src="path/to/dummy-image.jpg" alt="Dummy Image" class="dummy-image" />
+
+<div class="row">
+    <div class="container mt-4">
+        <div class="row" id="modelRow">
             <?php
-            $upload_dir = wp_upload_dir();
-            $user_dirname = $upload_dir['basedir'] . '/model/';
-
-            if (is_dir($user_dirname)) {
-              $model_files = scandir($user_dirname);
-              $model_files = array_diff($model_files, array('.', '..'));
-
-              foreach ($model_files as $index => $model_file) {
-                $model_path = $user_dirname . $model_file;
+              $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
+              $user_dirname = get_template_directory_uri() . '/model/';
+  
+              if (is_dir($theme_dir . '/model/')) {
+                  $model_files = scandir($theme_dir . '/model/');
+                  $model_files = array_diff($model_files, array('.', '..'));
+            foreach ($model_files as $index => $model_file) {
+                $model_path = $theme_dir . '/model/' . $model_file;
 
                 if (is_file($model_path)) {
-            ?>
-                  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="card" id="filter-app">
-                      <!-- Add model-viewer with a common class for styling -->
-                      <model-viewer class="card-img-top custom-model common-model model-container" src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" alt="A 3D model" onmouseover="startRotation(this)" onmouseout="stopRotation(this)" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);"></model-viewer>
+                    ?>
+                    <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card" id="filter-app">
+                            <!-- Add model-viewer with a common class for styling -->
+                            <model-viewer class="card-img-top custom-model common-model model-container" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" data-rotate-y="0deg"></model-viewer>
 
-                      <div class="card-body">
-                        <!-- Add a button for linking -->
-                        <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                        <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Modal -->
-                  <div class="modal fade" id="modelModal_<?php echo $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel_<?php echo $index; ?>" aria-hidden="true">
-                    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="modelModalLabel_<?php echo $index; ?>">3D Model Viewer</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <div class="container">
-                            <div class="row">
-                              <!-- Render 4 models to the right -->
-                              <div class="col-lg-8">
-                                <!-- Model Viewer -->
-                                <model-viewer src="<?php echo esc_url($upload_dir['baseurl'] . '/model/' . $model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo get_template_directory_uri() ?>/forerunner_car_poster.jpg">
-                                </model-viewer>
-                              </div>
-
-                              <!-- Heading and description at the bottom -->
-                              <div class="col-lg-4" id="modal_info">
-                                <h4>Model Information</h4>
-                                <p>This is a brief description of the 3D model. You can add more details here.</p>
-                              </div>
+                            <div class="card-body">
+                                <!-- Add a button for linking -->
+                                <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
+                                    <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
+                                </a>
                             </div>
-                          </div>
                         </div>
-                      </div>
                     </div>
-                  </div>
-
-
-
-            <?php
+                    <?php
                 }
-              }
-            }
+            }}
             ?>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Function to handle model loading on hover
+    function handleModelLoading(modelViewer) {
+      modelViewer.addEventListener('mouseenter', function () {
+        var src = this.getAttribute('data-src');
+        this.setAttribute('src', src);
+        startRotation(this);
+      });
+
+      modelViewer.addEventListener('mouseleave', function () {
+        stopRotation(this);
+      });
+    }
+
+    // Function to handle model-viewer rotation on mouse movement
+    function handleModelViewerRotation(modelRow) {
+      modelRow.addEventListener('mousemove', function (event) {
+        const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
+
+        modelViewers.forEach(modelViewer => {
+          const boundingRect = modelViewer.getBoundingClientRect();
+          const offsetX = event.clientX - boundingRect.left;
+          const percentageX = (offsetX / boundingRect.width) * 100;
+
+          // Adjust the rotation speed by changing the multiplier (e.g., 1 for normal speed)
+          const rotationSpeed = 1;
+
+          modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
+        });
+      });
+    }
+
+    // Function to start rotation on mouse hover
+    function startRotation(modelViewer) {
+      // Add class to trigger rotation
+      modelViewer.classList.add('rotate-on-hover');
+    }
+
+    // Function to stop rotation when mouse leaves
+    function stopRotation(modelViewer) {
+      // Remove class to stop rotation
+      modelViewer.classList.remove('rotate-on-hover');
+    }
+
+    // Get all elements with class 'custom-model'
+    var modelViewers = document.querySelectorAll('.custom-model');
+    var modelRow = document.getElementById('modelRow');
+
+    // Apply the loading and rotation handling functions to each model viewer
+    modelViewers.forEach(handleModelLoading);
+    handleModelViewerRotation(modelRow);
+  });
+</script>
+
+
+
+
 
     </div>
   </section><!-- End Portfolio Section -->
@@ -829,32 +859,5 @@ get_header();
 
 
 
-  //model-viewer move on mouse hover
-  function startRotation(modelViewer) {
-    // Add class to trigger rotation
-    modelViewer.classList.add('rotate-on-hover');
-  }
 
-  function stopRotation(modelViewer) {
-    // Remove class to stop rotation
-    modelViewer.classList.remove('rotate-on-hover');
-  }
-
-  // Add JavaScript to rotate only when the model has the 'rotate-on-hover' class
-  const modelRow = document.getElementById('modelRow');
-
-  modelRow.addEventListener('mousemove', function(event) {
-    const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
-
-    modelViewers.forEach(modelViewer => {
-      const boundingRect = modelViewer.getBoundingClientRect();
-      const offsetX = event.clientX - boundingRect.left;
-      const percentageX = (offsetX / boundingRect.width) * 100;
-
-      // Adjust the rotation speed by changing the multiplier (e.g., 1 for normal speed)
-      const rotationSpeed = 1;
-
-      modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
-    });
-  });
 </script>
