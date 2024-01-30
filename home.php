@@ -322,9 +322,6 @@ get_header();
         <h2>OUR WORK</h2>
         <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
       </div>
-      <!-- Add a dummy image as a placeholder -->
-      <!-- Add a dummy image as a placeholder -->
-      <!-- Add a dummy image as a placeholder -->
 
       <style>
         /* Styles for the smaller custom spinner */
@@ -378,7 +375,7 @@ get_header();
                 if (is_file($model_path)) {
             ?>
                   <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="card" id="filter-app">
+                    <div class="card common-card" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
                       <!-- Add a static image tag for the initial image -->
                       <img class="card-img-top custom-image common-model" src="<?php echo esc_url(get_template_directory_uri() . '/test.png'); ?>" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
 
@@ -390,20 +387,37 @@ get_header();
                       <div class="loading-spinner" id="loadingSpinner_<?php echo $index; ?>">
                         <img src="<?php echo esc_url(get_template_directory_uri() . '/spin.gif'); ?>" alt="Loading Spinner" />
                       </div>
+                    </div>
+                  </div>
 
-                      <!-- OR use a custom spinner -->
-                      <!-- <div class="loading-spinner" id="loadingSpinner_<?php echo $index; ?>">
-                  <div class="spinner"></div>
-                </div> -->
+                  <!-- Modal for each model -->
+                  <div class="modal fade" id="modelModal_<?php echo $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="modelModalLabel">Model Details</h5>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                          </button>
+                        </div>
+                        <div class="modal-body">
+                          <!-- Render 4 models to the right -->
+                          <div class="col-lg-8">
+                            <!-- Model Viewer -->
+                            <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
+                            </model-viewer>
+                          </div>
 
-                      <div class="card-body">
-                        <!-- Add a button for linking -->
-                        <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                          <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
-                        </a>
+
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
                       </div>
                     </div>
                   </div>
+
+
             <?php
                 }
               }
@@ -412,6 +426,51 @@ get_header();
           </div>
         </div>
       </div>
+
+      <style>
+        .common-card {
+          cursor: pointer;
+        }
+
+        .modal-dialog {
+          max-width: 90%;
+          width: 90%;
+          max-height: 90vh;
+          /* Adjust the max-height as needed */
+          margin: 1.75rem auto;
+          /* Adjust the margin as needed */
+          overflow-y: auto;
+          /* Add scroll when content exceeds the height */
+        }
+
+        @media (min-width: 768px) {
+          .modal-dialog {
+            max-width: 90%;
+            width: 90%;
+            max-height: 80vh;
+            /* Adjust the max-height as needed */
+            margin: 1.75rem auto;
+            /* Adjust the margin as needed */
+            overflow-y: auto;
+            /* Add scroll when content exceeds the height */
+          }
+        }
+      </style>
+
+
+
+      <!-- JavaScript to handle the card click event and open the corresponding modal -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          var cards = document.querySelectorAll('.common-card');
+
+          cards.forEach(function(card, index) {
+            card.addEventListener('click', function() {
+              $('#modelModal_' + index).modal('show');
+            });
+          });
+        });
+      </script>
 
       <script>
         document.addEventListener('DOMContentLoaded', function() {
