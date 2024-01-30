@@ -15,8 +15,9 @@ get_header();
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img" id="model1" data-aos="fade-left">
         <!-- <img src="assets/img/hero-img.png"  alt=""> -->
-        <model-viewer src="<?php echo get_template_directory_uri() ?>/Sneaker_360_Scan_PP.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo get_template_directory_uri() ?>/forerunner_car_poster.jpg">
+        <model-viewer src="<?php echo get_template_directory_uri() ?>/Sneaker_360_Scan_PP.glb ?>" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy">
         </model-viewer>
+
 
 
         </model-viewer>
@@ -325,128 +326,171 @@ get_header();
       <!-- Add a dummy image as a placeholder -->
       <!-- Add a dummy image as a placeholder -->
 
+      <style>
+        /* Styles for the smaller custom spinner */
+        .loading-spinner {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          display: none;
+          z-index: 999;
+        }
 
-      <!-- Add a dummy image as a placeholder -->
-      <img src="path/to/dummy-image.jpg" alt="Dummy Image" class="dummy-image" />
+        .loading-spinner.active {
+          display: block;
+        }
 
-      <div class="row">
-  <div class="container mt-4">
-    <div class="row" id="modelRow">
-      <?php
-      $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
-      $user_dirname = get_template_directory_uri() . '/model/';
 
-      if (is_dir($theme_dir . '/model/')) {
-        $model_files = scandir($theme_dir . '/model/');
-        $model_files = array_diff($model_files, array('.', '..'));
-        foreach ($model_files as $index => $model_file) {
-          $model_path = $theme_dir . '/model/' . $model_file;
+        .spinner {
+          border: 2px solid rgba(0, 0, 0, 0.1);
+          border-top: 2px solid #3498db;
+          border-radius: 50%;
+          width: 30px;
+          height: 30px;
+          animation: spin 1s linear infinite;
+        }
 
-          if (is_file($model_path)) {
-      ?>
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-              <div class="card" id="filter-app">
-                <!-- Add a static image tag for the initial image -->
-                <img class="card-img-top custom-image common-model" 
-                src="<?=get_template_directory_uri()?>/test.png"  
-                  alt="A 2D image" 
-                  style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+        @keyframes spin {
+          0% {
+            transform: rotate(0deg);
+          }
 
-                <!-- Add model-viewer with a common class for styling -->
-                <model-viewer class="card-img-top custom-model common-model model-container" 
-                  alt="A 3D model" 
-                  style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" 
-                  data-rotate-y="0deg" 
-                  data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>">
-                </model-viewer>
-
-                <div class="card-body">
-                  <!-- Add a button for linking -->
-                  <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                    <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
-                  </a>
-                </div>
-              </div>
-            </div>
-      <?php
+          100% {
+            transform: rotate(360deg);
           }
         }
-      }
-      ?>
-    </div>
-  </div>
-</div>
+      </style>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  function startRotation(modelViewer) {
-    modelViewer.classList.add('rotate-on-hover');
-  }
+      <div class="row">
+        <div class="container mt-4">
+          <div class="row" id="modelRow">
+            <?php
+            $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
+            $user_dirname = get_template_directory_uri() . '/model/';
 
-  function stopRotation(modelViewer) {
-    modelViewer.classList.remove('rotate-on-hover');
-  }
+            if (is_dir($theme_dir . '/model/')) {
+              $model_files = scandir($theme_dir . '/model/');
+              $model_files = array_diff($model_files, array('.', '..'));
+              foreach ($model_files as $index => $model_file) {
+                $model_path = $theme_dir . '/model/' . $model_file;
 
-  function handleImageVisibility(card) {
-    var image = card.querySelector('.custom-image');
-    var modelViewer = card.querySelector('.custom-model');
+                if (is_file($model_path)) {
+            ?>
+                  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                    <div class="card" id="filter-app">
+                      <!-- Add a static image tag for the initial image -->
+                      <img class="card-img-top custom-image common-model" src="<?php echo esc_url(get_template_directory_uri() . '/test.png'); ?>" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
 
-    card.addEventListener('mouseenter', function () {
-      image.style.display = 'none';
+                      <!-- Add model-viewer with a common class for styling -->
+                      <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" loading="lazy">
+                      </model-viewer>
 
-      // Check if the model has already been loaded
-      if (!modelViewer.hasLoadedModel) {
-        modelViewer.setAttribute('src', modelViewer.getAttribute('data-src'));
-        modelViewer.hasLoadedModel = true;
-      }
+                      <!-- Loading spinner using a smaller animated GIF -->
+                      <div class="loading-spinner" id="loadingSpinner_<?php echo $index; ?>">
+                        <img src="<?php echo esc_url(get_template_directory_uri() . '/spin.gif'); ?>" alt="Loading Spinner" />
+                      </div>
 
-      modelViewer.style.display = 'block';
-      startRotation(modelViewer);
-    });
+                      <!-- OR use a custom spinner -->
+                      <!-- <div class="loading-spinner" id="loadingSpinner_<?php echo $index; ?>">
+                  <div class="spinner"></div>
+                </div> -->
 
-    card.addEventListener('mouseleave', function () {
-      image.style.display = 'block';
-      modelViewer.style.display = 'none';
-      stopRotation(modelViewer);
-    });
-  }
+                      <div class="card-body">
+                        <!-- Add a button for linking -->
+                        <a href="#" class="btn btn-transparent-bg btn-icon" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
+                          <i class="fa-solid fa-eye" style="color: #fcfcfc;"></i>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+            <?php
+                }
+              }
+            }
+            ?>
+          </div>
+        </div>
+      </div>
 
-  function handleModelViewerRotation(modelRow) {
-    modelRow.addEventListener('mousemove', throttle(function (event) {
-      const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          function startRotation(modelViewer) {
+            modelViewer.classList.add('rotate-on-hover');
+          }
 
-      modelViewers.forEach(modelViewer => {
-        const boundingRect = modelViewer.getBoundingClientRect();
-        const offsetX = event.clientX - boundingRect.left;
-        const percentageX = (offsetX / boundingRect.width) * 100;
+          function stopRotation(modelViewer) {
+            modelViewer.classList.remove('rotate-on-hover');
+          }
 
-        const rotationSpeed = 1;
+          function handleImageVisibility(card) {
+            var image = card.querySelector('.custom-image');
+            var modelViewer = card.querySelector('.custom-model');
+            var loadingSpinner = card.querySelector('.loading-spinner');
 
-        modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
-      });
-    }, 50)); // Adjust the throttle interval as needed
-  }
+            card.addEventListener('mouseenter', function() {
+              image.style.display = 'none';
 
-  function throttle(func, limit) {
-    let inThrottle;
-    return function () {
-      const args = arguments;
-      const context = this;
-      if (!inThrottle) {
-        func.apply(context, args);
-        inThrottle = true;
-        setTimeout(() => inThrottle = false, limit);
-      }
-    };
-  }
+              // Check if the model has already been loaded
+              if (!modelViewer.hasLoadedModel) {
+                loadingSpinner.classList.add('active'); // Show loading spinner
+                modelViewer.setAttribute('src', modelViewer.getAttribute('data-src'));
+                modelViewer.hasLoadedModel = true;
+              }
 
-  var cards = document.querySelectorAll('.card');
-  var modelRow = document.getElementById('modelRow');
+              modelViewer.style.display = 'block';
+              startRotation(modelViewer);
+            });
 
-  cards.forEach(handleImageVisibility);
-  handleModelViewerRotation(modelRow);
-});
-</script>
+            card.addEventListener('mouseleave', function() {
+              image.style.display = 'block';
+              modelViewer.style.display = 'none';
+              stopRotation(modelViewer);
+            });
+
+            // Add an event listener for model load
+            modelViewer.addEventListener('load', function() {
+              loadingSpinner.classList.remove('active'); // Hide loading spinner after the model has loaded
+            });
+          }
+
+          function handleModelViewerRotation(modelRow) {
+            modelRow.addEventListener('mousemove', throttle(function(event) {
+              const modelViewers = modelRow.querySelectorAll('.rotate-on-hover');
+
+              modelViewers.forEach(modelViewer => {
+                const boundingRect = modelViewer.getBoundingClientRect();
+                const offsetX = event.clientX - boundingRect.left;
+                const percentageX = (offsetX / boundingRect.width) * 100;
+
+                const rotationSpeed = 1;
+
+                modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
+              });
+            }, 50)); // Adjust the throttle interval as needed
+          }
+
+          function throttle(func, limit) {
+            let inThrottle;
+            return function() {
+              const args = arguments;
+              const context = this;
+              if (!inThrottle) {
+                func.apply(context, args);
+                inThrottle = true;
+                setTimeout(() => inThrottle = false, limit);
+              }
+            };
+          }
+
+          var cards = document.querySelectorAll('.card');
+          var modelRow = document.getElementById('modelRow');
+
+          cards.forEach(handleImageVisibility);
+          handleModelViewerRotation(modelRow);
+        });
+      </script>
+
 
 
 
