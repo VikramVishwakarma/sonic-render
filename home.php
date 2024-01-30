@@ -401,14 +401,23 @@ get_header();
                           </button>
                         </div>
                         <div class="modal-body">
-                          <!-- Render 4 models to the right -->
-                          <div class="col-lg-8">
-                            <!-- Model Viewer -->
-                            <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
-                            </model-viewer>
+                          <!-- Add content related to the model details here -->
+                          <!-- Example content -->
+                          <div style="max-height: 60vh; overflow-y: auto;">
+                            <!-- Render 4 models to the right -->
+                            <div class="col-lg-8">
+                              <!-- Model Viewer -->
+                              <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
+                              </model-viewer>
+                            </div>
+
+                            <!-- Heading and description at the bottom -->
+                            <div class="col-lg-4" id="modal_info">
+                              <h4>Model Information</h4>
+                              <p>This is a brief description of the 3D model. You can add more details here.</p>
+                            </div>
+
                           </div>
-
-
                         </div>
                         <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -416,6 +425,7 @@ get_header();
                       </div>
                     </div>
                   </div>
+
 
 
             <?php
