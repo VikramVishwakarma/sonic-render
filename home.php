@@ -323,6 +323,124 @@ get_header();
         <p>Our portfolio showcases our team's expertise and creativity, highlighting our commitment to delivering high-quality 3D assets, immersive AR/VR experiences, and cutting-edge 3D scanning services.</p>
       </div>
 
+      <div class="row">
+          <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+     <div class="row">
+    <div class="container mt-4">
+        <div class="row" id="modelRow">
+            <?php
+            $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
+            $user_dirname = get_template_directory_uri() . '/model/';
+
+            if (is_dir($theme_dir . '/model/')) {
+                $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
+
+                foreach ($sub_folders as $sub_folder) {
+                    $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
+
+                    if (is_dir($sub_folder_path)) {
+                        // If $sub_folder is a directory, scan its content and display models
+                        $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
+
+                        foreach ($sub_folder_files as $index => $sub_model_file) {
+                            $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
+
+                            if (is_file($sub_model_path)) {
+                                ?>
+                                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                                    <div class="card common-card" data-toggle="modal" data-target="#subModelModal_<?php echo $sub_folder . '_' . $index; ?>">
+                                        <!-- Add a static image tag for the initial image -->
+                                        <img class="card-img-top custom-image common-model" src="<?php echo esc_url(get_template_directory_uri() . '/test.png'); ?>" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+
+                                        <!-- Add model-viewer with a common class for styling -->
+                                        <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
+                                        </model-viewer>
+
+                                        <!-- Loading spinner using a smaller animated GIF -->
+                                        <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
+                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/spin.gif'); ?>" alt="Loading Spinner" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Modal for each sub-model -->
+                                <div class="modal fade" id="subModelModal_<?php echo $sub_folder . '_' . $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="modelModalLabel">Model Details</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div style="max-height: 60vh; overflow-y: auto;">
+                                                    <div class="col-lg-8">
+                                                        <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
+                                                        </model-viewer>
+                                                    </div>
+                                                    <div class="col-lg-4" id="modal_info">
+                                                        <h4>Model Information</h4>
+                                                        <p>This is a brief description of the 3D model. You can add more details here.</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php
+                            }
+                        }
+                    }
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
+
+      <style>
+        .common-card {
+          cursor: pointer;
+        }
+
+        .modal-dialog {
+          max-width: 90%;
+          width: 90%;
+          max-height: 90vh;
+          /* Adjust the max-height as needed */
+          margin: 1.75rem auto;
+          /* Adjust the margin as needed */
+          overflow-y: auto;
+          /* Add scroll when content exceeds the height */
+        }
+
+        @media (min-width: 768px) {
+          .modal-dialog {
+            max-width: 90%;
+            width: 90%;
+            max-height: 80vh;
+            /* Adjust the max-height as needed */
+            margin: 1.75rem auto;
+            /* Adjust the margin as needed */
+            overflow-y: auto;
+            /* Add scroll when content exceeds the height */
+          }
+        }
+      </style>
+
       <style>
         /* Styles for the smaller custom spinner */
         .loading-spinner {
@@ -355,114 +473,6 @@ get_header();
 
           100% {
             transform: rotate(360deg);
-          }
-        }
-      </style>
-
-      <div class="row">
-        <div class="container mt-4">
-          <div class="row" id="modelRow">
-            <?php
-            $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
-            $user_dirname = get_template_directory_uri() . '/model/';
-
-            if (is_dir($theme_dir . '/model/')) {
-              $model_files = scandir($theme_dir . '/model/');
-              $model_files = array_diff($model_files, array('.', '..'));
-              foreach ($model_files as $index => $model_file) {
-                $model_path = $theme_dir . '/model/' . $model_file;
-
-                if (is_file($model_path)) {
-            ?>
-                  <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="card common-card" data-toggle="modal" data-target="#modelModal_<?php echo $index; ?>">
-                      <!-- Add a static image tag for the initial image -->
-                      <img class="card-img-top custom-image common-model" src="<?php echo esc_url(get_template_directory_uri() . '/test.png'); ?>" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
-
-                      <!-- Add model-viewer with a common class for styling -->
-                      <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" loading="lazy">
-                      </model-viewer>
-
-                      <!-- Loading spinner using a smaller animated GIF -->
-                      <div class="loading-spinner" id="loadingSpinner_<?php echo $index; ?>">
-                        <img src="<?php echo esc_url(get_template_directory_uri() . '/spin.gif'); ?>" alt="Loading Spinner" />
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- Modal for each model -->
-                  <div class="modal fade" id="modelModal_<?php echo $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="modelModalLabel">Model Details</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <!-- Add content related to the model details here -->
-                          <!-- Example content -->
-                          <div style="max-height: 60vh; overflow-y: auto;">
-                            <!-- Render 4 models to the right -->
-                            <div class="col-lg-8">
-                              <!-- Model Viewer -->
-                              <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
-                              </model-viewer>
-                            </div>
-
-                            <!-- Heading and description at the bottom -->
-                            <div class="col-lg-4" id="modal_info">
-                              <h4>Model Information</h4>
-                              <p>This is a brief description of the 3D model. You can add more details here.</p>
-                            </div>
-
-                          </div>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-
-
-            <?php
-                }
-              }
-            }
-            ?>
-          </div>
-        </div>
-      </div>
-
-      <style>
-        .common-card {
-          cursor: pointer;
-        }
-
-        .modal-dialog {
-          max-width: 90%;
-          width: 90%;
-          max-height: 90vh;
-          /* Adjust the max-height as needed */
-          margin: 1.75rem auto;
-          /* Adjust the margin as needed */
-          overflow-y: auto;
-          /* Add scroll when content exceeds the height */
-        }
-
-        @media (min-width: 768px) {
-          .modal-dialog {
-            max-width: 90%;
-            width: 90%;
-            max-height: 80vh;
-            /* Adjust the max-height as needed */
-            margin: 1.75rem auto;
-            /* Adjust the margin as needed */
-            overflow-y: auto;
-            /* Add scroll when content exceeds the height */
           }
         }
       </style>
