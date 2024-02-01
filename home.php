@@ -17,10 +17,6 @@ get_header();
         <!-- <img src="assets/img/hero-img.png"  alt=""> -->
         <model-viewer src="<?php echo get_template_directory_uri() ?>/Sneaker_360_Scan_PP.glb ?>" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy">
         </model-viewer>
-
-
-
-        </model-viewer>
       </div>
     </div>
   </div>
@@ -292,309 +288,132 @@ get_header();
       </div>
 
       <div class="row">
-    <div class="container mt-4">
-        <!-- Bootstrap Tabs for Categories -->
-        <ul class="nav nav-tabs" id="categoryTabs">
+        <div class="container mt-4">
+          <!-- Bootstrap Tabs for Categories -->
+          <ul class="nav nav-tabs" id="categoryTabs" data-aos="fade-up">
             <li class="nav-item">
-                <a class="nav-link active" id="allModelsTab" data-toggle="tab" href="#allModels">All Models</a>
+              <a class="nav-link active" id="allModelsTab" data-toggle="tab" href="#allModels">All Models</a>
             </li>
             <?php
             $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
             if (is_dir($theme_dir . '/model/')) {
-                $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
+              $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
 
-                foreach ($sub_folders as $sub_folder) {
-                    ?>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#<?php echo $sub_folder; ?>"><?php echo $sub_folder; ?></a>
-                    </li>
-                    <?php
-                }
+              foreach ($sub_folders as $sub_folder) {
+            ?>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#<?php echo $sub_folder; ?>"><?php echo $sub_folder; ?></a>
+                </li>
+            <?php
+              }
             }
             ?>
-        </ul>
+          </ul>
 
-        <!-- Bootstrap Tab Content -->
-        <div class="tab-content mt-3">
+          <!-- Bootstrap Tab Content -->
+          <div class="tab-content mt-3">
             <div class="tab-pane fade show active" id="allModels">
-                <!-- Display three models from each sub-folder in "All Models" tab -->
-                <?php
-                displayModels('all', 2);
-                ?>
+              <!-- Display three models from each sub-folder in "All Models" tab -->
+              <?php
+              displayModels('all', 2);
+              ?>
             </div>
             <?php
             foreach ($sub_folders as $sub_folder) {
-                ?>
-                <div class="tab-pane fade" id="<?php echo $sub_folder; ?>">
-                    <!-- Display all models from the specific sub-folder -->
-                    <?php
-                    displayModels($sub_folder);
-                    ?>
-                </div>
+            ?>
+              <div class="tab-pane fade" id="<?php echo $sub_folder; ?>">
+                <!-- Display all models from the specific sub-folder -->
                 <?php
+                displayModels($sub_folder);
+                ?>
+              </div>
+            <?php
             }
             ?>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<?php
-function displayModels($selectedCategory, $maxModels = null)
-{
-    global $theme_dir;
-    ?>
-    <div class="row" id="modelRow">
-        <?php
-        if (is_dir($theme_dir . '/model/')) {
+      <?php
+      function displayModels($selectedCategory, $maxModels = null)
+      {
+        global $theme_dir;
+      ?>
+        <div class="row" id="modelRow">
+          <?php
+          if (is_dir($theme_dir . '/model/')) {
             $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
 
             foreach ($sub_folders as $sub_folder) {
-                $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
+              $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
 
-                if (is_dir($sub_folder_path)) {
-                    $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
+              if (is_dir($sub_folder_path)) {
+                $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
 
-                    $modelsCount = 0;
+                $modelsCount = 0;
 
-                    foreach ($sub_folder_files as $index => $sub_model_file) {
-                        $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
+                foreach ($sub_folder_files as $index => $sub_model_file) {
+                  $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
 
-                        if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
-                            if ($selectedCategory === 'all' || $selectedCategory === $sub_folder) {
-                                ?>
-                                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                                    <div class="card common-card" data-toggle="modal" data-target="#subModelModal_<?php echo $sub_folder . '_' . $index; ?>">
-                                        <img class="card-img-top custom-image common-model" src="<?php echo esc_url(get_template_directory_uri() . '/test.png'); ?>" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
-                                        <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
-                                        </model-viewer>
-                                        <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
-                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/spin.gif'); ?>" alt="Loading Spinner" />
-                                        </div>
-                                    </div>
+                  if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
+                    if ($selectedCategory === 'all' || $selectedCategory === $sub_folder) {
+          ?>
+                      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card common-card" data-toggle="modal" data-target="#subModelModal_<?php echo $sub_folder . '_' . $index; ?>">
+                          <img class="card-img-top custom-image common-model" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+                          <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
+                          </model-viewer>
+                          <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" />
+                          </div>
+                        </div>
+                      </div>
+
+                      <!-- Modal for each sub-model -->
+                      <div class="modal fade" id="subModelModal_<?php echo $sub_folder . '_' . $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modelModalLabel">Model Details</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              <div style="max-height: 60vh; overflow-y: auto;">
+                                <div class="col-lg-8">
+                                  <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
+                                  </model-viewer>
                                 </div>
-
-                                <!-- Modal for each sub-model -->
-                                <div class="modal fade" id="subModelModal_<?php echo $sub_folder . '_' . $index; ?>" tabindex="-1" role="dialog" aria-labelledby="modelModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="modelModalLabel">Model Details</h5>
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div style="max-height: 60vh; overflow-y: auto;">
-                                                    <div class="col-lg-8">
-                                                        <model-viewer src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg">
-                                                        </model-viewer>
-                                                    </div>
-                                                    <div class="col-lg-4" id="modal_info">
-                                                        <h4>Model Information</h4>
-                                                        <p>This is a brief description of the 3D model. You can add more details here.</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="col-lg-4" id="modal_info">
+                                  <h4>Model Information</h4>
+                                  <p>This is a brief description of the 3D model. You can add more details here.</p>
                                 </div>
-                                <?php
-                                $modelsCount++;
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+          <?php
+                      $modelsCount++;
 
-                                if ($maxModels !== null && $modelsCount >= $maxModels) {
-                                    break;
-                                }
-                            }
-                        }
+                      if ($maxModels !== null && $modelsCount >= $maxModels) {
+                        break;
+                      }
                     }
+                  }
                 }
+              }
             }
-        }
-        ?>
-    </div>
-    <?php
-}
-?>
-
-
-
-
-      <style>
-        .common-card {
-          cursor: pointer;
-        }
-
-        .modal-dialog {
-          max-width: 90%;
-          width: 90%;
-          max-height: 90vh;
-          /* Adjust the max-height as needed */
-          margin: 1.75rem auto;
-          /* Adjust the margin as needed */
-          overflow-y: auto;
-          /* Add scroll when content exceeds the height */
-        }
-
-        @media (min-width: 768px) {
-          .modal-dialog {
-            max-width: 90%;
-            width: 90%;
-            max-height: 80vh;
-            /* Adjust the max-height as needed */
-            margin: 1.75rem auto;
-            /* Adjust the margin as needed */
-            overflow-y: auto;
-            /* Add scroll when content exceeds the height */
           }
-        }
-      </style>
-
-      <style>
-        /* Styles for the smaller custom spinner */
-        .loading-spinner {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          display: none;
-          z-index: 999;
-        }
-
-        .loading-spinner.active {
-          display: block;
-        }
-
-
-        .spinner {
-          border: 2px solid rgba(0, 0, 0, 0.1);
-          border-top: 2px solid #3498db;
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      </style>
-
-
-
-     <!-- JavaScript to handle the card click event and open the same modal for all cards -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    var cards = document.querySelectorAll('.common-card');
-    var modal = $('#modelModal');
-
-    cards.forEach(function(card, index) {
-      card.addEventListener('click', function() {
-        // Set content or other dynamic changes based on card or index if needed
-
-        modal.modal('show');
-      });
-    });
-  });
-</script>
-
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    function startRotation(modelViewer) {
-        modelViewer.classList.add('rotate-on-hover');
-    }
-
-    function stopRotation(modelViewer) {
-        modelViewer.classList.remove('rotate-on-hover');
-    }
-
-    function handleImageVisibility(card) {
-        var image = card.querySelector('.custom-image');
-        var modelViewer = card.querySelector('.custom-model');
-        var loadingSpinner = card.querySelector('.loading-spinner');
-
-        card.addEventListener('mouseenter', function() {
-            image.style.display = 'none';
-
-            // Check if the model has already been loaded
-            if (!modelViewer.hasLoadedModel) {
-                loadingSpinner.classList.add('active'); // Show loading spinner
-                modelViewer.setAttribute('src', modelViewer.getAttribute('data-src'));
-                modelViewer.hasLoadedModel = true;
-            }
-
-            modelViewer.style.display = 'block';
-            startRotation(modelViewer);
-        });
-
-        card.addEventListener('mouseleave', function() {
-            image.style.display = 'block';
-            modelViewer.style.display = 'none';
-            stopRotation(modelViewer);
-        });
-
-        // Add an event listener for model load
-        modelViewer.addEventListener('load', function() {
-            loadingSpinner.classList.remove('active'); // Hide loading spinner after the model has loaded
-        });
-    }
-
-    function handleModelViewerRotation() {
-        document.addEventListener('mousemove', throttle(function(event) {
-            const modelViewers = document.querySelectorAll('.rotate-on-hover');
-
-            modelViewers.forEach(modelViewer => {
-                const boundingRect = modelViewer.getBoundingClientRect();
-                const offsetX = event.clientX - boundingRect.left;
-                const percentageX = (offsetX / boundingRect.width) * 100;
-
-                const rotationSpeed = 1;
-
-                modelViewer.cameraOrbit = `${percentageX * rotationSpeed}deg auto auto`;
-            });
-        }, 50)); // Adjust the throttle interval as needed
-    }
-
-    function throttle(func, limit) {
-        let inThrottle;
-        return function() {
-            const args = arguments;
-            const context = this;
-            if (!inThrottle) {
-                func.apply(context, args);
-                inThrottle = true;
-                setTimeout(() => inThrottle = false, limit);
-            }
-        };
-    }
-
-    var cards = document.querySelectorAll('.card');
-    var modelRow = document.getElementById('modelRow');
-
-    cards.forEach(handleImageVisibility);
-    handleModelViewerRotation();
-});
-</script>
-
-
-
-
-
-
-
-
-
-
-
+          ?>
+        </div>
+      <?php
+      }
+      ?>
     </div>
   </section><!-- End Portfolio Section -->
 
