@@ -418,9 +418,34 @@ ul.horizontal-list {
     padding-top: 16px;
   }
 
+  img.card-img-top.custom-image.common-model {
+    height: 195px;
+    padding: 61px 95px;
+  }
 
+  #portfolio a {
+    font-family: fantasy;
+    letter-spacing: 1.2px;
+    color: white;
+    padding: 10px 16px;
+  }
 
+  #portfolio a.nav-link.active {
+    font-family: fantasy;
+    color: black;
+    padding: 10px 16px;
+  } 
+  #portfolio p {
+    font-style: italic;
+  }
 
+  #portfolio li.nav-item {
+    background: #007fff;
+    border-bottom: 1px solid white;
+  }
+  ul#categoryTabs {
+    border-bottom: 2px solid white;
+}
 
   #portfolio .section-title h2 {
     font-size: 45px;
@@ -637,4 +662,72 @@ ul.horizontal-list {
     transition: 0.3s;
     font-size: 17px;
     font-family: "Poppins", sans-serif;
+  }
+
+
+
+  /* models  */
+  .common-card {
+    cursor: pointer;
+  }
+
+  .modal-dialog {
+    max-width: 90%;
+    width: 90%;
+    max-height: 90vh;
+    /* Adjust the max-height as needed */
+    margin: 1.75rem auto;
+    /* Adjust the margin as needed */
+    overflow-y: auto;
+    /* Add scroll when content exceeds the height */
+  }
+
+  @media (min-width: 768px) {
+    .modal-dialog {
+      max-width: 90%;
+      width: 90%;
+      max-height: 80vh;
+      /* Adjust the max-height as needed */
+      margin: 1.75rem auto;
+      /* Adjust the margin as needed */
+      overflow-y: auto;
+      /* Add scroll when content exceeds the height */
+    }
+  }
+
+
+
+  /* spinner  */
+  /* Styles for the smaller custom spinner */
+  .loading-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+    z-index: 999;
+  }
+
+  .loading-spinner.active {
+    display: block;
+  }
+
+
+  .spinner {
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    border-top: 2px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
   }
