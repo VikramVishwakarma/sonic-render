@@ -402,7 +402,7 @@ ul.horizontal-list {
   .card .custom-model {
     width: 100%;
     /* Set the width to 100% to make the model fill the card */
-    height: 194px;
+    height: 195px;
     /* Adjust the height as needed */
     object-fit: cover;
     /* Maintain aspect ratio and cover the entire space */
@@ -434,7 +434,8 @@ ul.horizontal-list {
     font-family: fantasy;
     color: black;
     padding: 10px 16px;
-  } 
+  }
+
   #portfolio p {
     font-style: italic;
   }
@@ -443,9 +444,10 @@ ul.horizontal-list {
     background: #007fff;
     border-bottom: 1px solid white;
   }
+
   ul#categoryTabs {
     border-bottom: 2px solid white;
-}
+  }
 
   #portfolio .section-title h2 {
     font-size: 45px;
@@ -686,7 +688,7 @@ ul.horizontal-list {
     .modal-dialog {
       max-width: 90%;
       width: 90%;
-      max-height: 80vh;
+      max-height: 90vh;
       /* Adjust the max-height as needed */
       margin: 1.75rem auto;
       /* Adjust the margin as needed */
@@ -730,4 +732,27 @@ ul.horizontal-list {
     100% {
       transform: rotate(360deg);
     }
+  }
+
+
+
+
+  /* modal_model  */
+  .modal-body .row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  .modal-body .row .card.common-card {
+    width: 346px;
+    border: none;
+  }
+
+  model-viewer#modal_model {
+    height: 460px;
   }
