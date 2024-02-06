@@ -288,131 +288,188 @@ get_header();
       </div>
 
       <div class="row">
-    <div class="container mt-4">
-        <!-- Bootstrap Tabs for Categories -->
-        <ul class="nav nav-tabs" id="categoryTabs" data-aos="fade-up">
+        <div class="container mt-4">
+          <!-- Bootstrap Tabs for Categories -->
+          <ul class="nav nav-tabs" id="categoryTabs" data-aos="fade-up">
             <li class="nav-item">
-                <a class="nav-link active" id="allModelsTab" data-toggle="tab" href="#allModels">All Models</a>
+              <a class="nav-link active" id="allModelsTab" data-toggle="tab" href="#allModels">All Models</a>
             </li>
             <?php
             $theme_dir = get_template_directory(); // Get the absolute path to the theme directory
             if (is_dir($theme_dir . '/model/')) {
-                $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
+              $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
 
-                foreach ($sub_folders as $sub_folder) {
+              foreach ($sub_folders as $sub_folder) {
             ?>
-                    <li class="nav-item">
-                        <a class="nav-link" data-toggle="tab" href="#<?php echo $sub_folder; ?>"><?php echo $sub_folder; ?></a>
-                    </li>
+                <li class="nav-item">
+                  <a class="nav-link" data-toggle="tab" href="#<?php echo $sub_folder; ?>"><?php echo $sub_folder; ?></a>
+                </li>
             <?php
-                }
+              }
             }
             ?>
-        </ul>
+          </ul>
 
-        <!-- Bootstrap Tab Content -->
-        <div class="tab-content mt-3">
+          <!-- Bootstrap Tab Content -->
+          <div class="tab-content mt-3">
             <div class="tab-pane fade show active" id="allModels">
-                <!-- Display three models from each sub-folder in "All Models" tab -->
-                <?php
-                displayModels('all', 2);
-                ?>
+              <!-- Display three models from each sub-folder in "All Models" tab -->
+              <?php
+              displayModels('all', 2);
+              ?>
             </div>
             <?php
             foreach ($sub_folders as $sub_folder) {
             ?>
-                <div class="tab-pane fade" id="<?php echo $sub_folder; ?>">
-                    <!-- Display all models from the specific sub-folder -->
-                    <?php
-                    displayModels($sub_folder);
-                    ?>
-                </div>
+              <div class="tab-pane fade" id="<?php echo $sub_folder; ?>">
+                <!-- Display all models from the specific sub-folder -->
+                <?php
+                displayModels($sub_folder);
+                ?>
+              </div>
             <?php
             }
             ?>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<!-- Modal Container -->
-<div class="modal fade" id="allModelsModal" tabindex="-1" role="dialog" aria-labelledby="allModelsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
+      <!-- Modal Container -->
+      <div class="modal fade" id="allModelsModal" tabindex="-1" role="dialog" aria-labelledby="allModelsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="allModelsModalLabel">Model Details</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+              <h5 class="modal-title" id="allModelsModalLabel">Model Details</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
             </div>
             <div class="modal-body">
-                <div style="max-height: 60vh; overflow-y: auto;">
-                    <div class="col-lg-8" id="modal_model_container">
-                        <!-- Model viewer will be dynamically added here -->
-                    </div>
-                    <!-- <div class="col-lg-4" id="modal_info">
-                        <h4>Model Information</h4>
-                        <p>This is a brief description of the 3D model. You can add more details here.</p>
-                    </div> -->
+              <div class="row">
+                <div class="col-lg-8">
+                  <!-- Large left side container for the model -->
+                  <div id="modal_model_container">
+                    <!-- Model viewer will be dynamically added here -->
+                  </div>
                 </div>
+                <div class="col-lg-3">
+                  <!-- Right side container for displaying models -->
+                  <div class="row">
+                    <!-- Display at least four models here -->
+                    <?php
+                    // Assuming you want to display at least four models here
+                    displayModelsInModal(4);
+                    ?>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
-<?php
-function displayModels($selectedCategory, $maxModels = null)
-{
-    global $theme_dir;
-?>
-    <div class="row" id="modelRow">
-        <?php
+      <?php
+      // Function to display models in the modal
+      function displayModelsInModal($maxModels)
+      {
+        global $theme_dir;
+
         if (is_dir($theme_dir . '/model/')) {
+          $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
+
+          foreach ($sub_folders as $sub_folder) {
+            $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
+
+            if (is_dir($sub_folder_path)) {
+              $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
+
+              $modelsCount = 0;
+
+              foreach ($sub_folder_files as $index => $sub_model_file) {
+                $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
+                $modelsCount++;
+
+                if ($modelsCount >= $maxModels) {
+
+                  if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
+      ?>
+                    <div class="col-md-6 col-lg-12 pt-2 ml-3">
+                      <div class="card common-card">
+                        <img class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); width: 100%;" />
+                        <div class="card-body">
+                          <model-viewer class="custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
+                          </model-viewer>
+                          <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+      <?php
+                    break;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      ?>
+
+      <?php
+      function displayModels($selectedCategory, $maxModels = null)
+      {
+        global $theme_dir;
+      ?>
+        <div class="row" id="modelRow">
+          <?php
+          if (is_dir($theme_dir . '/model/')) {
             $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
 
             foreach ($sub_folders as $sub_folder) {
-                $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
+              $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
 
-                if (is_dir($sub_folder_path)) {
-                    $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
+              if (is_dir($sub_folder_path)) {
+                $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
 
-                    $modelsCount = 0;
+                $modelsCount = 0;
 
-                    foreach ($sub_folder_files as $index => $sub_model_file) {
-                        $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
+                foreach ($sub_folder_files as $index => $sub_model_file) {
+                  $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
 
-                        if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
-                            if ($selectedCategory === 'all' || $selectedCategory === $sub_folder) {
-        ?>
-                                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
-                                    <div class="card common-card" data-toggle="modal" data-target="#allModelsModal" data-model-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>">
-                                        <img class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
-                                        <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
-                                        </model-viewer>
-                                        <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
-                                            <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" />
-                                        </div>
-                                    </div>
-                                </div>
-        <?php
-                                $modelsCount++;
+                  if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
+                    if ($selectedCategory === 'all' || $selectedCategory === $sub_folder) {
+          ?>
+                      <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
+                        <div class="card common-card" data-toggle="modal" data-target="#allModelsModal" data-model-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>">
+                          <img class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+                          <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
+                          </model-viewer>
+                          <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
+                            <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" />
+                          </div>
+                        </div>
+                      </div>
+          <?php
+                      $modelsCount++;
 
-                                if ($maxModels !== null && $modelsCount >= $maxModels) {
-                                    break;
-                                }
-                            }
-                        }
+                      if ($maxModels !== null && $modelsCount >= $maxModels) {
+                        break;
+                      }
                     }
+                  }
                 }
+              }
             }
-        }
-        ?>
-    </div>
-<?php
-}
-?>
+          }
+          ?>
+        </div>
+      <?php
+      }
+      ?>
 
 
     </div>
