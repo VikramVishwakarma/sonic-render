@@ -349,10 +349,10 @@ get_header();
                     <div class="col-lg-8" id="modal_model_container">
                         <!-- Model viewer will be dynamically added here -->
                     </div>
-                    <div class="col-lg-4" id="modal_info">
+                    <!-- <div class="col-lg-4" id="modal_info">
                         <h4>Model Information</h4>
                         <p>This is a brief description of the 3D model. You can add more details here.</p>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="modal-footer">
@@ -388,7 +388,7 @@ function displayModels($selectedCategory, $maxModels = null)
         ?>
                                 <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-duration="1000">
                                     <div class="card common-card" data-toggle="modal" data-target="#allModelsModal" data-model-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>">
-                                        <img class="card-img-top custom-image common-model" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+                                        <img class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
                                         <model-viewer class="card-img-top custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
                                         </model-viewer>
                                         <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
@@ -413,6 +413,7 @@ function displayModels($selectedCategory, $maxModels = null)
 <?php
 }
 ?>
+
 
     </div>
   </section><!-- End Portfolio Section -->
