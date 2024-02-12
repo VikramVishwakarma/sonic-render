@@ -347,18 +347,22 @@ get_header();
               <div class="row">
                 <div class="col-lg-8">
                   <!-- Large left side container for the model -->
+                
                   <div id="modal_model_container">
                     <!-- Model viewer will be dynamically added here -->
                   </div>
+                  <div class="modal-title"></div>
                 </div>
                 <div class="col-lg-3">
                   <!-- Right side container for displaying models -->
                   <div class="row">
                     <!-- Display at least four models here -->
-                    <?php
+                   <div class="four-models">
+                   <?php
                     // Assuming you want to display at least four models here
                     displayModelsInModal(4);
                     ?>
+                   </div>
                   </div>
                 </div>
               </div>
