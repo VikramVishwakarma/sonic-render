@@ -359,7 +359,7 @@ get_header();
                   
                     <div class="tag-section">
                     <ul class="tag-list">
-                    <img class="tag" src="<?php echo get_template_directory_uri() ?>/assets/img/tag.png" alt="">
+                    <img class="tag" src="<?php echo get_template_directory_uri() ?>/assets/img/tag.png" alt="">Tag :</img>
                     <li>Animation ready 3D Model</li>
                     <li>Game Ready Character</li>
                     <li>Low Poly Model</li>
