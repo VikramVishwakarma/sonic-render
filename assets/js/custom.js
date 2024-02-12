@@ -92,7 +92,9 @@ document.addEventListener('DOMContentLoaded', function () {
             image.style.display = 'block';
             modelViewer.style.display = 'none';
             stopRotation(modelViewer);
+            loadingSpinner.classList.remove('active'); // Hide loading spinner when mouse leaves the card
         });
+        
 
         // Add an event listener for model load
         modelViewer.addEventListener('load', function () {
