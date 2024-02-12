@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 modelViewer.style.display = 'block';
                 startRotation(modelViewer);
-            }, 500); // Delayed rendering after 0.5 second
+            }, 800); // Delayed rendering after 0.8 second
         });
 
         card.addEventListener('mouseleave', function () {
@@ -148,21 +148,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-//modal
-// document.addEventListener("DOMContentLoaded", function () {
-//     var cards = document.querySelectorAll('.common-card');
-//     var modal = $('#modelModal');
-
-//     cards.forEach(function (card, index) {
-//         card.addEventListener('click', function () {
-//             // Set content or other dynamic changes based on card or index if needed
-
-//             modal.modal('show');
-//         });
-//     });
-// });
-
-
 // modal 
 $(document).ready(function () {
     $('#allModelsModal').on('show.bs.modal', function (event) {
@@ -173,7 +158,35 @@ $(document).ready(function () {
         // Clear previous content
         modalModelContainer.empty();
 
+        // Extracting only the last part of the file name without the extension
+        var fileNameWithExtension = modelSrc.split('/').pop(); // Splitting by '/' and getting the last part
+        var fileNameWithoutExtension = fileNameWithExtension.split('.')[0]; // Removing extension
+
+        // Decode URI component to replace % signs with spaces
+        var decodedFileName = decodeURIComponent(fileNameWithoutExtension);
+
+        // Set the decoded file name without extension as the modal title
+        $('.modal-title').text(decodedFileName);
+
         // Add the model-viewer to the modal
-        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%; height: 400px;" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
+        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
+    });
+
+    // Function to handle model click event on the right side
+    $('.common-model').click(function() {
+        var modelSrc = $(this).data('src'); // Get the model source from data-src attribute
+        var modalModelContainer = $('#modal_model_container');
+
+        // Clear previous content
+        modalModelContainer.empty();
+
+        // Add the model-viewer to the modal
+        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
     });
 });
+
+
+
+
+
+

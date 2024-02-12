@@ -338,8 +338,7 @@ get_header();
       <div class="modal fade" id="allModelsModal" tabindex="-1" role="dialog" aria-labelledby="allModelsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="allModelsModalLabel">Model Details</h5>
+            <div class="close">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
@@ -348,18 +347,41 @@ get_header();
               <div class="row">
                 <div class="col-lg-8">
                   <!-- Large left side container for the model -->
+                
+                  <div class="box">
                   <div id="modal_model_container">
                     <!-- Model viewer will be dynamically added here -->
                   </div>
+                  <div class="modal-title"></div>
+                    <p>3D Model</p>
+                    
+                  </div>
+                  
+                    <div class="tag-section">
+                    <ul class="tag-list">
+                    <img class="tag" src="<?php echo get_template_directory_uri() ?>/assets/img/tag.png" alt="">Tag :</img>
+                    <li>Animation ready 3D Model</li>
+                    <li>Game Ready Character</li>
+                    <li>Low Poly Model</li>
+                    <li>NFT Characters</li>
+                    <li>PBR Texturing</li>
+                    <li>Anime Characters</li>
+                    <li>Animals</li>
+                    <li>2D to 3D</li>
+                  </ul>
+                    </div>
+                    
                 </div>
                 <div class="col-lg-3">
                   <!-- Right side container for displaying models -->
                   <div class="row">
                     <!-- Display at least four models here -->
-                    <?php
+                   <div class="four-models">
+                   <?php
                     // Assuming you want to display at least four models here
                     displayModelsInModal(4);
                     ?>
+                   </div>
                   </div>
                 </div>
               </div>
@@ -372,52 +394,55 @@ get_header();
       </div>
 
       <?php
-      // Function to display models in the modal
+      // Function to display models from any folder in the modal
       function displayModelsInModal($maxModels)
       {
-        global $theme_dir;
-
-        if (is_dir($theme_dir . '/model/')) {
-          $sub_folders = array_diff(scandir($theme_dir . '/model/'), array('.', '..'));
-
-          foreach ($sub_folders as $sub_folder) {
-            $sub_folder_path = $theme_dir . '/model/' . $sub_folder;
-
-            if (is_dir($sub_folder_path)) {
-              $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
-
+          global $theme_dir;
+      
+          $model_folder = $theme_dir . '/model/';
+      
+          if (is_dir($model_folder)) {
+              $sub_folders = array_diff(scandir($model_folder), array('.', '..'));
+      
               $modelsCount = 0;
-
-              foreach ($sub_folder_files as $index => $sub_model_file) {
-                $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
-                $modelsCount++;
-
-                if ($modelsCount >= $maxModels) {
-
-                  if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
-      ?>
-                    <div class="col-md-6 col-lg-12 pt-2 ml-3">
-                      <div class="card common-card">
-                        <img class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo2.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); width: 100%;" />
-                        <div class="card-body">
-                          <model-viewer class="custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
-                          </model-viewer>
-                          <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
-                            <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-      <?php
-                    break;
+      
+              foreach ($sub_folders as $sub_folder) {
+                  $sub_folder_path = $model_folder . $sub_folder;
+      
+                  if (is_dir($sub_folder_path)) {
+                      $sub_folder_files = array_diff(scandir($sub_folder_path), array('.', '..'));
+      
+                      foreach ($sub_folder_files as $index => $sub_model_file) {
+                          $sub_model_path = $sub_folder_path . '/' . $sub_model_file;
+      
+                          if (is_file($sub_model_path) && (strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'obj' || strtolower(pathinfo($sub_model_file, PATHINFO_EXTENSION)) === 'glb')) {
+                              ?>
+                              <div class="col-md-6 col-lg-12 pt-2 ml-3">
+                                  <div class="card common-card" style="border: 1px solid #ccc; border-radius: 8px; overflow: hidden; width: 100%;">
+                                      <img id="model_img" class="card-img-top custom-image common-model" data-aos="fade-up" src="<?php echo get_template_directory_uri() ?>/assets/img/logo.jpeg" alt="A 2D image" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);" />
+                                      <div class="card-body">
+                                          <model-viewer class="custom-model common-model model-container" alt="A 3D model" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); display: none;" data-rotate-y="0deg" data-src="<?php echo esc_url(get_template_directory_uri() . '/model/' . $sub_folder . '/' . $sub_model_file); ?>" loading="lazy">
+                                          </model-viewer>
+                                          <div class="loading-spinner" id="loadingSpinner_<?php echo $sub_folder . '_' . $index; ?>">
+                                              <img src="<?php echo esc_url(get_template_directory_uri() . '/Double Ring.gif'); ?>" alt="Loading Spinner" style="width: 100%;" />
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                              <?php
+                              $modelsCount++;
+      
+                              if ($modelsCount >= $maxModels) {
+                                  return; // Stop displaying models once the limit is reached
+                              }
+                          }
+                      }
                   }
-                }
               }
-            }
           }
-        }
       }
-      ?>
+      
+?>
 
       <?php
       function displayModels($selectedCategory, $maxModels = null)
