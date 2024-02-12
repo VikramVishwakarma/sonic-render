@@ -171,6 +171,18 @@ $(document).ready(function () {
         // Add the model-viewer to the modal
         modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
     });
+
+    // Function to handle model click event on the right side
+    $('.common-model').click(function() {
+        var modelSrc = $(this).data('src'); // Get the model source from data-src attribute
+        var modalModelContainer = $('#modal_model_container');
+
+        // Clear previous content
+        modalModelContainer.empty();
+
+        // Add the model-viewer to the modal
+        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
+    });
 });
 
 
