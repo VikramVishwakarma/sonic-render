@@ -381,6 +381,11 @@ ul.horizontal-list {
       height: 690px;
       padding-bottom: 40px;
     }
+    .modal-body .col-lg-8 {
+      -ms-flex: 0 0 66.666667%;
+      flex: 0 0 66.666667%;
+      max-width: 66.666667%;
+  }
   }
 
 
@@ -419,7 +424,7 @@ ul.horizontal-list {
   }
 
   img.card-img-top.custom-image.common-model {
-    height: 195px;
+    /* height: 195px; */
     padding: 61px 95px;
   }
 
@@ -602,6 +607,21 @@ ul.horizontal-list {
         border-radius: 0;
       }
     }
+
+    .modal-body .card .custom-model {
+      width: 100%;
+      /* Set the width to 100% to make the model fill the card */
+      height: 168px;
+      /* Adjust the height as needed */
+      object-fit: cover;
+      /* Maintain aspect ratio and cover the entire space */
+    }
+    .modal-body img.card-img-top.custom-image.common-model {
+      height: auto;
+      padding: 61px 95px;
+      max-width: 100%;
+  }
+  
   }
 
   #Nav_id li.nav-item {
@@ -745,8 +765,9 @@ ul.horizontal-list {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-right: -15px;
+    margin-top: -10px;
     margin-left: -15px;
-  }
+}
 
   .modal-body .row .card.common-card {
     width: 346px;
@@ -757,6 +778,10 @@ ul.horizontal-list {
     height: 460px;
   }
 
+  button.btn.btn-secondary:hover {
+    background: #000000;
+    color: white !important;;
+}
 
   /*
 }
@@ -776,7 +801,7 @@ button.btn.btn-secondary:hover {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 24px;
+  font-size: 4px;
   transition: transform 0.3s ease, background-color 0.3s ease; /* Add background-color transition */
   background: black;
   /* color: white; */
@@ -819,4 +844,61 @@ button.btn.btn-secondary {
   background: #009cea;
   border: 1px solid white;
   font-family: 'Poppins';
+}
+
+.modal-title {
+  display: flex;
+  font-family: fantasy;
+  font-weight: 500;
+  font-size: 32px;
+  /* padding-top: 17px; */
+  letter-spacing: 1.2px;
+  /* padding-bottom: 8px; */
+  /* border-bottom: 1px solid; */
+}
+
+div#modal_model_container {
+  padding-bottom: 32px;
+}
+
+#portfolio p {
+  font-size: 14px;
+  font-style: italic;
+  color: #9f9f9f;
+  margin-top: -8px;
+  margin-bottom: 0px;
+}
+img.tag {
+  height: auto;
+  width: 30px;
+  margin: 0px 10px 0px;
+}
+
+
+.tag-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* Add a border at the top of the list */
+  padding-top: 10px;
+  /* Add some padding for spacing */
+}
+.tag-section .tag-list {
+  list-style: none;
+  margin: 0;
+}
+
+.tag-section .tag-list li {
+  display: -webkit-inline-box;
+  padding: 4px 10px;
+  height: 28px;
+  font-size: 13px;
+  margin: 4px;
+  border-radius: 25px;
+  background-color: #f1f1f1;
+}
+.box {
+  
+  border-bottom: 1px solid #8f8989;
+  padding-bottom: -7px;
 }
