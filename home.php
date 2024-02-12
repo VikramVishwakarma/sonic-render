@@ -352,6 +352,11 @@ get_header();
                     <!-- Model viewer will be dynamically added here -->
                   </div>
                   <div class="modal-title"></div>
+                    <p>3D Model</p>
+                    <div class="tag-section">
+                    <img class="tag" src="<?php echo get_template_directory_uri() ?>/assets/img/tag.png" alt="">
+                    </div>
+                    
                 </div>
                 <div class="col-lg-3">
                   <!-- Right side container for displaying models -->
