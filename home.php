@@ -348,13 +348,27 @@ get_header();
                 <div class="col-lg-8">
                   <!-- Large left side container for the model -->
                 
+                  <div class="box">
                   <div id="modal_model_container">
                     <!-- Model viewer will be dynamically added here -->
                   </div>
                   <div class="modal-title"></div>
                     <p>3D Model</p>
+                    
+                  </div>
+                  
                     <div class="tag-section">
+                    <ul class="tag-list">
                     <img class="tag" src="<?php echo get_template_directory_uri() ?>/assets/img/tag.png" alt="">
+                    <li>Animation ready 3D Model</li>
+                    <li>Game Ready Character</li>
+                    <li>Low Poly Model</li>
+                    <li>NFT Characters</li>
+                    <li>PBR Texturing</li>
+                    <li>Anime Characters</li>
+                    <li>Animals</li>
+                    <li>2D to 3D</li>
+                  </ul>
                     </div>
                     
                 </div>
