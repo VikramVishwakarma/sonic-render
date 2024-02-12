@@ -158,10 +158,22 @@ $(document).ready(function () {
         // Clear previous content
         modalModelContainer.empty();
 
+        // Extracting only the last part of the file name without the extension
+        var fileNameWithExtension = modelSrc.split('/').pop(); // Splitting by '/' and getting the last part
+        var fileNameWithoutExtension = fileNameWithExtension.split('.')[0]; // Removing extension
+
+        // Decode URI component to replace % signs with spaces
+        var decodedFileName = decodeURIComponent(fileNameWithoutExtension);
+
+        // Set the decoded file name without extension as the modal title
+        $('.modal-title').text(decodedFileName);
+
         // Add the model-viewer to the modal
         modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="1.5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
     });
 });
+
+
 
 
 
