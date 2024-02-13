@@ -765,7 +765,6 @@ ul.horizontal-list {
     justify-content: space-evenly;
     flex-wrap: wrap;
     margin-right: -15px;
-    margin-top: -10px;
     margin-left: -15px;
 }
 
@@ -796,6 +795,9 @@ button.btn.btn-secondary:hover {
 
 .close {
   margin: 5px 0px;
+  position: absolute;
+  top: 10px;
+  left: 94%;
 }
 .close button {
   background-color: transparent;
@@ -858,15 +860,14 @@ button.btn.btn-secondary {
 }
 
 div#modal_model_container {
-  padding-bottom: 32px;
+  padding-bottom: 20px;
 }
-
 #portfolio p {
   font-size: 14px;
   font-style: italic;
   color: #9f9f9f;
   margin-top: -8px;
-  margin-bottom: 0px;
+  margin-bottom: 1px;
 }
 img.tag {
   height: auto;
@@ -884,9 +885,8 @@ img.tag {
 }
 .tag-section .tag-list {
   list-style: none;
-  margin: 0;
+  margin: 10px 0px;
 }
-
 .tag-section .tag-list li {
   display: -webkit-inline-box;
   padding: 4px 10px;
