@@ -171,7 +171,7 @@ $(document).ready(function () {
         $('.modal-title').text(decodedFileName);
 
         // Add the model-viewer to the modal
-        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="5.5" background-color="#393939" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
+        modalModelContainer.append('<model-viewer src="' + modelSrc + '" camera-controls auto-rotate id="modal_model" style="width: 100%;height:530px" exposure="1.0" shadow-intensity="5.5" background-color="#252525" shadow-softness="0.5" loading="lazy" poster="<?php echo esc_url(get_template_directory_uri()) ?>/forerunner_car_poster.jpg"></model-viewer>');
     });
 
     // Function to handle model click event on the right side
