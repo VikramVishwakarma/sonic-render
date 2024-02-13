@@ -503,10 +503,10 @@ ul.horizontal-list {
 
   /* model */
   #modal_model {
-    background: #212529;
+    background: #393939;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     border: 2px solid white;
-  }
+}
 
   #modal_info h4 {
     font-family: fantasy;
@@ -853,10 +853,8 @@ button.btn.btn-secondary {
   font-family: fantasy;
   font-weight: 500;
   font-size: 32px;
-  /* padding-top: 17px; */
+  color: #2a8ce3;
   letter-spacing: 1.2px;
-  /* padding-bottom: 8px; */
-  /* border-bottom: 1px solid; */
 }
 
 div#modal_model_container {
