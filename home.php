@@ -338,11 +338,6 @@ get_header();
       <div class="modal fade" id="allModelsModal" tabindex="-1" role="dialog" aria-labelledby="allModelsModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
           <div class="modal-content">
-            <div class="close">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
             <div class="modal-body">
               <div class="row">
                 <div class="col-lg-8">
@@ -391,6 +386,11 @@ get_header();
             </div>
           </div>
         </div>
+        <div class="close">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
       </div>
 
       <?php
