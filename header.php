@@ -45,14 +45,14 @@
   <script src="https://kit.fontawesome.com/e6535bfde2.js" crossorigin="anonymous"></script>
 
   <style>
-    #Nav_id {
+    /* #Nav_id {
       background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/background/background.jpg');
-      /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+
       background-size: cover;
-      /* Ensures the background image covers the entire header */
+
       background-position: center center;
-      /* Center the background image */
-    }
+     
+    } */
 
 
     section#testimonials {
@@ -74,8 +74,15 @@
       background-position: center;
       background-size: cover;
       padding: 100px 0;
-      /* Adjust padding as needed */
     }
+
+    section#hero {
+      background-image: url('<?php echo get_template_directory_uri() ?>/black-smooth-textured-paper-background.jpg');
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      padding: 100px 0;
+}
   </style>
 
 
