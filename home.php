@@ -5,58 +5,52 @@ get_header();
 <!-- ======= Hero Section ======= -->
 <section id="hero">
   <div class="container">
-    <div class="row" id='home'>
+    <div class="row" id="home">
       <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
         <div class="des">
-          <h1>We are 3d-designer Sonic Render</h1>
+          <h1>We are <span class="auto-input typed-text"></span></h1>
           <h2>"Unleash Your Creativity with Sonic Render 3D Design!"</h2>
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img" id="model1" data-aos="fade-left">
-        <!-- <img src="assets/img/hero-img.png"  alt=""> -->
-        <model-viewer src="<?php echo get_template_directory_uri() ?>/Sneaker_360_Scan_PP.glb ?>" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy">
-        </model-viewer>
+        <model-viewer src="<?php echo get_template_directory_uri() ?>/MetaSpeed_Shoe_Sample_3.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy"></model-viewer>
       </div>
     </div>
   </div>
-  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script>
-</section><!-- End Hero -->
+</section>
 
 
 <main id="main">
 
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-    <div class="container">
-
-      <div class="row">
-        <div class="col-lg-6" data-aos="zoom-in">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
-          <div class="content pt-4 pt-lg-0" id='about'>
-            <h3>Learn more about us</h3>
-            <p class="font-italic">
-              We design your Imagination.
-            </p>
-            <!-- <ul>
-                <li><i class="icofont-check-circled"></i> 3D Assets</li>
-                <li><i class="icofont-check-circled"></i> AR / VR</li>
-                <li><i class="icofont-check-circled"></i> 2D to 3D</li>
-                <li><i class="icofont-check-circled"></i> 3D Scan</li>
-              </ul> -->
-            <p>
-              Welcome to our 3D design agency! We are a team of highly skilled and creative professionals who specialize in creating stunning 3D designs for a wide range of industries and clients.
-              We are experts in using the latest industry software and techniques to create highly detailed and realistic 3D models. We offer a range of 3D design services, including product
-              visualization, architectural visualization, character design, and more.
-            </p>
-          </div>
+<section id="about" class="about">
+  <div class="container glass-effect"> <!-- Add the glass-effect class here -->
+    <div class="row">
+      <div class="col-lg-6" data-aos="zoom-in">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/img/about.jpg" class="img-fluid" alt="">
+      </div>
+      <div class="col-lg-6 d-flex flex-column justify-contents-center" data-aos="fade-left">
+        <div class="content pt-4 pt-lg-0" id='about'>
+          <h3>Learn more about us</h3>
+          <p class="font-italic">
+            We design your Imagination.
+          </p>
+          <!-- <ul>
+              <li><i class="icofont-check-circled"></i> 3D Assets</li>
+              <li><i class="icofont-check-circled"></i> AR / VR</li>
+              <li><i class="icofont-check-circled"></i> 2D to 3D</li>
+              <li><i class="icofont-check-circled"></i> 3D Scan</li>
+            </ul> -->
+          <p>
+            Welcome to our 3D design agency! We are a team of highly skilled and creative professionals who specialize in creating stunning 3D designs for a wide range of industries and clients.
+            We are experts in using the latest industry software and techniques to create highly detailed and realistic 3D models. We offer a range of 3D design services, including product
+            visualization, architectural visualization, character design, and more.
+          </p>
         </div>
       </div>
-
     </div>
-  </section><!-- End About Section -->
+  </div>
+</section><!-- End About Section -->
 
   <!-- ======= Cta Section ======= -->
   <section id="cta" class="cta">
