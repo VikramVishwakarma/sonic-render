@@ -48,6 +48,16 @@ $(document).ready(function () {
         }
     });
 });
+  // JavaScript for sticky navbar with smooth transition
+  window.addEventListener('scroll', function() {
+    var navbar = document.getElementById('Nav_id');
+    if (window.scrollY > 50) {
+      navbar.classList.add('navbar-scrolled');
+    } else {
+      navbar.classList.remove('navbar-scrolled');
+    }
+  });
+
 
 
 // models 
@@ -188,6 +198,18 @@ $(document).ready(function () {
 });
 
 
+
+
+// Re-typing
+
+document.addEventListener("DOMContentLoaded", function() {
+    var typed = new Typed(".auto-input", {
+      strings: ["3D-ARTIST", "GRAPHICS DESIGNER", "UI DESIGNER", "MODELLING"],
+      typeSpeed: 60,
+      backSpeed: 50,
+      loop: true
+    });
+  });
 
 
 
