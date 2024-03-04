@@ -48,15 +48,8 @@ $(document).ready(function () {
         }
     });
 });
-  // JavaScript for sticky navbar with smooth transition
-  window.addEventListener('scroll', function() {
-    var navbar = document.getElementById('Nav_id');
-    if (window.scrollY > 50) {
-      navbar.classList.add('navbar-scrolled');
-    } else {
-      navbar.classList.remove('navbar-scrolled');
-    }
-  });
+//JavaScript for sticky effect
+
 
 
 

@@ -505,20 +505,8 @@ ul.horizontal-list {
       display: block;
     }
   }
-/* navbar-sticky  */
-  /* CSS for changing navbar color and applying transition */
-  #Nav_id {
-    transition: background-color 0.5s ease, padding 0.5s ease;
-  }
-  .navbar-light.fixed-top {
-    background-color: transparent !important;
-    padding: 20px 0 !important; /* Initial padding */
-    transition: background-color 0.5s ease, padding 0.5s ease;
-  }
-  .navbar-light.fixed-top.navbar-scrolled {
-    background-color: white !important;
-    padding: 10px 0 !important; /* Adjusted padding */
-  }
+/* navbar  */
+
   /* model */
   #modal_model {
     background: #393939;
@@ -701,7 +689,7 @@ ul.horizontal-list {
     display: block;
     position: relative;
     letter-spacing: 2.2px;
-    color: rgb(255, 255, 255);
+    /* color: rgb(255, 255, 255); */
     padding: 21px 15px;
     transition: 0.3s;
     font-size: 17px;
