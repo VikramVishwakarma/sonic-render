@@ -14,8 +14,10 @@ get_header();
         </div>
       </div>
       <div class="col-lg-6 order-1 order-lg-2 hero-img" id="model1" data-aos="fade-left">
-        <model-viewer src="<?php echo get_template_directory_uri() ?>/MetaSpeed_Shoe_Sample_3.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy"></model-viewer>
-      </div>
+  <model-viewer src="<?php echo get_template_directory_uri() ?>/MetaSpeed_Shoe_Sample_3.glb" camera-controls auto-rotate style="width: 600px; height: 400px;" exposure="1.0" shadow-intensity="1.5" shadow-offset="5" background-color="#f0f0f0" shadow-softness="0.5" loading="lazy" disable-zoom></model-viewer>
+</div>
+
+
     </div>
   </div>
 </section>
