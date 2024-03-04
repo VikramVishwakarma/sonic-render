@@ -1,5 +1,6 @@
 <!doctype html>
 <html class="no-js" lang="zxx" <?php language_attributes(); ?>>
+
 <head>
   <meta charset="<?php bloginfo('charset') ?>">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -45,8 +46,8 @@
 
   <!-- typing  -->
   <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
-<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js" type="module"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js" type="module"></script>
 
   <style>
     /* #Nav_id {
@@ -66,6 +67,7 @@
       background-attachment: fixed;
       height: 700px;
     }
+
     /* .cta {
           background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/background/Parallax.jpg');
           background-size: cover;
@@ -85,7 +87,7 @@
       /* background-position: center; */
       background-size: cover;
       padding: 130px 0;
-}
+    }
   </style>
 
 
@@ -94,47 +96,47 @@
 
 <body <?php body_class(); ?>>
   <!-- ======= Header ======= -->
-  
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="Nav_id">
-  <div class="container-fluid">
-    <?php
-    $custom_logo_id = get_theme_mod('custom_logo');
-    $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
-    if (has_custom_logo()) {
-      echo '<a class="navbar-brand" href="#"><img id="logo" src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '" height="30"></a>';
-    } else {
-      echo '<a class="navbar-brand" href="#"><h1>' . get_bloginfo('name') . '</h1></a>';
-    }
-    ?>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-        <li class="nav-item active">
-          <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about">About</a>
-        </li>
-        <!-- Other menu items... -->
-        <li class="nav-item">
-          <a class="nav-link" href="#services">Services</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#portfolio">Portfolio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact</a>
-        </li>
-      </ul>
-      <!-- <form class="d-flex">
+    <div class="container-fluid">
+      <?php
+      $custom_logo_id = get_theme_mod('custom_logo');
+      $logo = wp_get_attachment_image_src($custom_logo_id, 'full');
+      if (has_custom_logo()) {
+        echo '<a class="navbar-brand" href="#"><img id="logo" src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '" height="30"></a>';
+      } else {
+        echo '<a class="navbar-brand" href="#"><h1>' . get_bloginfo('name') . '</h1></a>';
+      }
+      ?>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item active">
+            <a class="nav-link" href="#home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">About</a>
+          </li>
+          <!-- Other menu items... -->
+          <li class="nav-item">
+            <a class="nav-link" href="#services">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Portfolio</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Contact</a>
+          </li>
+        </ul>
+        <!-- <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form> -->
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+
 
 
   <script>
