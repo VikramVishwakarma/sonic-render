@@ -505,41 +505,20 @@ ul.horizontal-list {
       display: block;
     }
   }
-
+/* navbar-sticky  */
+  /* CSS for changing navbar color and applying transition */
   #Nav_id {
-    transition: background-color 0.3s ease, height 0.3s ease, transform 0.3s ease;
-    /* Add transition for background color, height change, and transform */
+    transition: background-color 0.5s ease, padding 0.5s ease;
   }
-
-  #Nav_id.navbar-scrolled {
-    background-color: rgba(255, 255, 255, 0.9);
-    /* White background when scrolled */
-    height: 60px;
-    /* Adjust the height when scrolled */
-    transform: translateY(0);
-    /* Reset transform */
+  .navbar-light.fixed-top {
+    background-color: transparent !important;
+    padding: 20px 0 !important; /* Initial padding */
+    transition: background-color 0.5s ease, padding 0.5s ease;
   }
-
-  .navbar-brand img {
-    max-height: 40px;
-    /* Adjust the height of the logo */
+  .navbar-light.fixed-top.navbar-scrolled {
+    background-color: white !important;
+    padding: 10px 0 !important; /* Adjusted padding */
   }
-
-  .navbar-nav .nav-link {
-    color: #ffffff;
-    /* Text color */
-  }
-
-  .navbar-nav .nav-link:hover {
-    color: #ffffff;
-    /* Text color on hover */
-  }
-
-  #Nav_id.navbar-scrolled a {
-    color: black;
-    /* Set text color to black when navbar is scrolled */
-  }
-
   /* model */
   #modal_model {
     background: #393939;
