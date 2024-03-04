@@ -16,6 +16,10 @@
   font-family: 'Poppins-Regular';
   src: url("assets/font/Poppins-Regular.ttf'");
  }
+
+html{
+  margin-top: 0px!important;
+}
 body {
   /* font-family: "Open Sans", sans-serif; */
   font-family: 'Poppins-Regular', sans-serif;
@@ -374,7 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 #hero h1 {
   margin: 0 0 20px 0;
-  font-size: 55px;
+  font-size: 40px;
   font-weight: 700;
   line-height: 56px;
   color: white;
@@ -384,7 +388,7 @@ h1, h2, h3, h4, h5, h6 {
 #hero h2 {
   color: #d3d3d3;
   margin-bottom: 30px;
-  font-size: 20px;
+  font-size: 17px;
   font-style: italic;
 }
 
