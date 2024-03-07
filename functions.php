@@ -7,6 +7,8 @@ if(!defined('ABSPATH'))
 
 include_once(get_template_directory() . '/lib/helpers.php');
 include_once(get_template_directory() . '/lib/utils.php');
+// Include WP Bootstrap Navwalker class
+require_once get_template_directory() . '/wp-bootstrap-navwalker-master/class-wp-bootstrap-navwalker.php';
 
 
 
@@ -64,3 +66,12 @@ function wpdocs_theme_name_scripts() {
 	wp_enqueue_script( 'script-assets-js-custom', get_template_directory_uri() . '/assets/js/custom.js' );
 }
 add_action( 'wp_enqueue_scripts', 'wpdocs_theme_name_scripts' );
+
+
+function my_theme_setup() {
+    // Add support for navigation menus
+    register_nav_menus(array(
+        'primary' => __('Primary Menu', 'my-theme'),
+    ));
+}
+add_action('after_setup_theme', 'my_theme_setup');
