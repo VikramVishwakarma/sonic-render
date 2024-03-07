@@ -129,17 +129,16 @@
 
   .testimonials .section-title p {
     margin-bottom: 0;
-    color: #ffffff;
+    color: #f1f1f1;
     font-style: italic;
-  }
-
+}
   #testimonials .container .section-title #who {
     font-size: 18px;
     margin-bottom: 20px;
     padding-bottom: 0;
     font-style: italic;
-    color: #00496d;
-  }
+    color: #009cea;
+}
 
 
 
@@ -210,28 +209,27 @@
   text-align: center;
 } */
 
-  #testimonials .container .section-title h2 {
-    font-size: 45px;
-    font-weight: 600;
-    margin-bottom: 0px;
-    padding-bottom: 0;
-    font-family: "Poppins", sans-serif;
-    color: #000000;
-  }
+#testimonials .container .section-title h2 {
+  font-size: 45px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  padding-bottom: 0;
+  font-family: "Poppins", sans-serif;
+  color: #ffffff;
+}
 
 
 
   /* Style the testimonial-item as profile cards */
   .testimonial-item {
     background-color: #fff;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 20px;
     text-align: center;
     transition: box-shadow 0.3s ease;
-    /* Apply transition for box-shadow */
-  }
+}
 
   .testimonial-item:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -241,12 +239,10 @@
   /* Adjust styles for the profile image */
   .testimonial-item .pic img {
     border-radius: 50%;
-    width: 150px;
-    /* Adjust as needed */
-    height: 150px;
-    /* Adjust as needed */
+    width: 186px;
+    height: 200px;
     object-fit: cover;
-  }
+}
 
   /* Style member-info (name and position) */
   .testimonial-item .member-info {
@@ -695,7 +691,10 @@ ul.horizontal-list {
     font-size: 17px;
     font-family: "Poppins", sans-serif;
   }
-
+  .navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll ul {
+    display: flex;
+    list-style: none;
+}
 
 
   /* models  */
