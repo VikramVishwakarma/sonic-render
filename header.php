@@ -134,24 +134,24 @@
 
   <script>
     // Add the 'active' class to the current section in view
-    $(document).ready(function() {
-      $(window).scroll(function() {
-        var scrollPos = $(document).scrollTop();
-        $('nav ul.navbar-nav li a').each(function() {
-          var currLink = $(this);
-          var refElement = $(currLink.attr('href'));
-          if (
-            refElement.position().top <= scrollPos + 100 &&
-            refElement.position().top + refElement.height() > scrollPos
-          ) {
-            $('nav ul.navbar-nav li').removeClass('active');
-            currLink.parent().addClass('active');
-          } else {
-            currLink.parent().removeClass('active');
-          }
-        });
-      });
-    });
+    // $(document).ready(function() {
+    //   $(window).scroll(function() {
+    //     var scrollPos = $(document).scrollTop();
+    //     $('nav ul.navbar-nav li a').each(function() {
+    //       var currLink = $(this);
+    //       var refElement = $(currLink.attr('href'));
+    //       if (
+    //         refElement.position().top <= scrollPos + 100 &&
+    //         refElement.position().top + refElement.height() > scrollPos
+    //       ) {
+    //         $('nav ul.navbar-nav li').removeClass('active');
+    //         currLink.parent().addClass('active');
+    //       } else {
+    //         currLink.parent().removeClass('active');
+    //       }
+    //     });
+    //   });
+    // });
 
 
     // Sticky 
@@ -173,22 +173,78 @@
   }
   .navbar-light.fixed-top {
     background-color: transparent !important;
-    padding: 20px 0 !important; /* Initial padding */
+    padding: 10px 0 !important; /* Initial padding */
     transition: background-color 0.5s ease, padding 0.5s ease;
   }
   .navbar-light.fixed-top.navbar-scrolled {
     background-color: white !important;
-    padding: 10px 0 !important; /* Adjusted padding */
+    padding: 0px 0 !important;
     color: red !important;
   }
 
   .navbar-light.fixed-top.navbar-scrolled a{
     color: black !important;
   }
+  .navbar-light.fixed-top.navbar-scrolled a:hover{
+    color: yellow !important;
+    background-color: red;
+  }
   .navbar-light .navbar-nav .nav-link {
     color: rgb(255 255 255);
+}
+.navbar-light.fixed-top a:hover{
+    color: yellow !important;
+    background-color: red;
 }
   .navbar-light.fixed-top {
    color: white !important;;
   }
+
+
+  /* Apply sticky behavior to the header */
+  #Nav_id {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    transition: background-color 0.3s ease-in-out;
+    /* Add a transition for a smooth effect */
+  }
+
+  /* Adjust the background color when the header becomes sticky */
+  #Nav_id {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Black color with 50% opacity */
+    backdrop-filter: blur(5px);
+    /* Blur effect */
+    -webkit-backdrop-filter: blur(5px);
+    /* For Safari */
+  }
+
+  /* .navbar-nav .nav-item.active .nav-link {
+    color: #f5c615 !important;
+  }
+
+  .navbar-nav .nav-item.active .nav-link {
+    color: #f5c615 !important;
+  } */
+
+  #navbarNav a {
+    /* padding: 9px 0px; */
+    height: 45px;
+    display: block;
+    position: relative;
+    letter-spacing: 2.2px;
+    color: rgb(255, 255, 255);
+    padding: 16px 33px;
+    transition: 0.3s;
+    font-size: 17px;
+    font-family: "Poppins", sans-serif;
+}
+  .navbar-nav.me-auto.my-2.my-lg-0.navbar-nav-scroll ul {
+    display: flex;
+    list-style: none;
+}
+
 </style>
