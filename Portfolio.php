@@ -10,7 +10,7 @@ Template Name: Custom Template
 
      <div class="section-title" data-aos="fade-up">
        <h2>SERVICES</h2>
-       <p>As a provider of 3D services, our team offers a range of specialized services related to
+       <p data-aos="zoom-in">As a provider of 3D services, our team offers a range of specialized services related to
          3D computer graphics, modeling, and design. Our services include 3D asset creation, animation,
          virtual and augmented reality development, 3D scanning, and architectural visualization.
          We work closely with our clients to understand their specific needs and provide tailored
@@ -231,12 +231,12 @@ Template Name: Custom Template
  <div class="container mt-5" id="service_container">
    <div class="row mb-5">
      <div class="col-lg-12">
-       <h2 class="text-center">WORK PROCESS</h2>
+       <h2 class="text-center" data-aos="fade-up">WORK PROCESS</h2>
      </div>
    </div>
    <div class="row">
      <div class="col-lg-6 mb-4">
-       <div class="card">
+       <div class="card" data-aos="fade-right">
          <div class="card-body">
 
            <div class="icon"><i class="fas fa-search mr-2" style="color: #28a745;"></i></div>
@@ -248,7 +248,7 @@ Template Name: Custom Template
        </div>
      </div>
      <div class="col-lg-6 mb-4">
-       <div class="card">
+       <div class="card"data-aos="fade-left">
          <div class="card-body">
 
            <div class="icon"><i class="fas fa-lightbulb mr-2" style="color: #dc3545;"></i></div>
@@ -260,7 +260,7 @@ Template Name: Custom Template
        </div>
      </div>
      <div class="col-lg-6 mb-4">
-       <div class="card">
+       <div class="card" data-aos="fade-right">
          <div class="card-body">
 
            <div class="icon"><i class="fas fa-cubes mr-2" style="color: #ffc107;"></i></div>
@@ -272,7 +272,7 @@ Template Name: Custom Template
        </div>
      </div>
      <div class="col-lg-6 mb-4">
-       <div class="card">
+       <div class="card" data-aos="fade-left">
          <div class="card-body">
 
            <div class="icon"><i class="fas fa-paint-brush mr-2" style="color: #17a2b8;"></i></div>
@@ -289,78 +289,63 @@ Template Name: Custom Template
 
 
  <style>
-   #service_container.container {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     padding-bottom: 6%;
-   }
+  #service_container.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-bottom: 6%;
+  }
 
-   .card {
-     transition: all 0.3s ease;
-     border: none;
-     height: calc(100% + 20px);
-     /* Adjust the value as needed */
-   }
+  .card {
+    transition: all 0.3s ease;
+    border: none;
+    height: calc(100% + 20px); /* Adjust the value as needed */
+  }
 
-   .card:hover {
-     transform: translateY(-5px);
-     box-shadow: 0 4px 8px rgb(0 0 0 / 35%);
-   }
+ 
 
-   .card-body {
-     background-color: #6c757d1a;
-     height: 100%;
-     padding: 11px 11px 11px 24px;
-     margin: 30px;
-     border-radius: 33px;
-     display: flex;
-   }
+  .card-body {
+    background-color: #6c757d1a;
+    height: 100%;
+    padding: 11px 11px 0px 24px;
+    margin: 30px;
+    border-radius: 33px;
+    display: flex;
+    transition: transform 0.3s ease; /* Smooth transition for the zoom effect */
+  }
 
-   .card-title {
-     margin-bottom: 0;
-   }
+  .card:hover .card-body {
+    transform: scale(1.05); /* Zoom in the card body */
+  }
 
-   i.fas {
-     font-size: 5rem;
-     padding: 16px 26px 0px 0px;
-     /* line-height: 25px; */
-   }
-
-   .card-body .icon {
-     padding-top: 11px;
-   }
-
-   .card-body .icon_content {
-     padding-top: 11px;
-   }
-   .text-center {
-    font-size: 3rem;
-    text-align: center!important;
-}
-.card-title {
+  .card-title {
     margin-bottom: 0;
     font-weight: 700;
-}
-
-   /* Responsive top margin */
-   /* @media (min-width: 768px) {
-  .mt-md-5 {
-    margin-top: 7rem !important;
   }
-}
 
-@media (min-width: 992px) {
-  .mt-lg-5 {
-    margin-top: 7rem !important;
+  i.fas {
+    font-size: 4rem;
+    padding: 16px 26px 0px 0px;
   }
-}
 
-@media (min-width: 1200px) {
-  .mt-xl-5 {
-    margin-top: 7rem !important;
+  .card-body .icon {
+    padding-top: 11px;
   }
-} */
- </style>
+
+  .card-body .icon_content {
+    padding-top: 11px;
+  }
+
+  section#services.section-bg {
+    background-color: #e9ecef;
+    padding: 9% 0px 5%;
+  }
+
+  .text-center {
+    font-size: 3rem;
+    text-align: center !important;
+  }
+</style>
+
 
  <?php get_footer(); ?>
