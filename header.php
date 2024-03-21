@@ -112,17 +112,16 @@
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-    <?php
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <?php
       wp_nav_menu(array(
         'theme_location' => 'primary', // Use the 'primary' menu location
-        'menu_class' => 'navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll', // Apply the Bootstrap navbar classes
+        'menu_class' => 'navbar-nav', // Apply the Bootstrap navbar classes
         'container' => false, // Remove the outer <div> container
-        'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>', // Customize the menu wrapper
-        'orderby' => 'menu_order', // Display menu items in the order set in the WordPress admin panel
+        'items_wrap' => '<ul id="%1$s" class="%2$s me-auto my-2 my-lg-0 navbar-nav-scroll">%3$s</ul>', // Customize the menu wrapper
+        'fallback_cb' => false, // Do not fallback to wp_page_menu if there's no menu
       ));
       ?>
-
     </div>
   </div>
 </nav>
@@ -179,11 +178,15 @@
   .navbar-light.fixed-top.navbar-scrolled {
     background-color: white !important;
     padding: 10px 0 !important; /* Adjusted padding */
-    color: red !important;
   }
 
   .navbar-light.fixed-top.navbar-scrolled a{
     color: black !important;
+  }
+  .navbar-light.fixed-top.navbar-scrolled a:hover{
+    color: #000000;
+      background-color: #f5c615;
+      /* border: 0.4px solid; */
   }
   .navbar-light .navbar-nav .nav-link {
     color: rgb(255 255 255);
@@ -191,4 +194,9 @@
   .navbar-light.fixed-top {
    color: white !important;;
   }
+
+  ul#menu-menu-1 {
+    display: flex;
+    align-items: center;
+}
 </style>
