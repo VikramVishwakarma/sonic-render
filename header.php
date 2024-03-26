@@ -15,6 +15,11 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <title><?= get_bloginfo('name'); ?></title>
+<!-- font-family  -->
+<link href="https://fonts.cdnfonts.com/css/helvetica-neue-55" rel="stylesheet">
+          
+
+
   <!-- AOS Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -49,7 +54,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js" type="module"></script>
 
   <style>
-    /* #Nav_id {
+    @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        /* #Nav_id {
       background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/background/background.jpg');
 
       background-size: cover;
@@ -60,11 +66,11 @@
 
 
     section#testimonials {
-      /* background-image: url('<?php echo get_template_directory_uri() ?>/assets/img/background/bn17.jpg');
-      background-position: center;
+     /* background-image: url('<?php echo get_template_directory_uri() ?>/back-3.png'); */
+      /* background-position: center;
       background-size: cover;
-      background-attachment: fixed;
-      height: 700px; */
+      background-attachment: fixed; */
+      height: 700px; 
       background-color: rgba(0, 0, 0, 0.8);
     }
     /* .cta {
@@ -73,7 +79,14 @@
           padding: 80px 0;
         } */
     #cta {
-      background-image: url('<?php echo get_template_directory_uri() ?>/black_bubble.jpg');
+      background-image: url('<?php echo get_template_directory_uri() ?>/download.jpeg');
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      padding: 100px 0;
+    }
+    .service-CTA #cta{
+      background-image: url('<?php echo get_template_directory_uri() ?>/wooden.jpg');
       background-attachment: fixed;
       background-position: center;
       background-size: cover;
@@ -81,8 +94,9 @@
     }
 
     section#hero {
-      background-image: url('<?php echo get_template_directory_uri() ?>/black-smooth-textured-paper-background.jpg');
-      background-attachment: fixed;
+      background: rgb(79,79,79);
+background: linear-gradient(0deg, rgba(79,79,79,0.9360994397759104) 0%, rgba(6,6,6,1) 58%);
+      /* background-attachment: fixed; */
       /* background-position: center; */
       background-size: cover;
       padding: 130px 0;
@@ -166,37 +180,56 @@
   </script>
 
 <style>
-  /* CSS for changing navbar color and applying transition */
+  /* Changes the background color of navbar links on hover */
+  #navbarNav a:hover {
+    color: #f5c615;
+  }
+
+  /* Applies transition effects to the navbar background color and padding */
   #Nav_id {
     transition: background-color 0.5s ease, padding 0.5s ease;
   }
   .navbar-light.fixed-top {
-    background-color: transparent !important;
     padding: 20px 0 !important; /* Initial padding */
     transition: background-color 0.5s ease, padding 0.5s ease;
   }
+
+  /* Styles for navbar when scrolled */
   .navbar-light.fixed-top.navbar-scrolled {
     background-color: white !important;
     padding: 10px 0 !important; /* Adjusted padding */
   }
-
-  .navbar-light.fixed-top.navbar-scrolled a{
+  .navbar-light.fixed-top.navbar-scrolled a {
     color: black !important;
   }
-  .navbar-light.fixed-top.navbar-scrolled a:hover{
+  .navbar-light.fixed-top.navbar-scrolled a:hover {
     color: #000000;
-      background-color: #f5c615;
-      /* border: 0.4px solid; */
-  }
-  .navbar-light .navbar-nav .nav-link {
-    color: rgb(255 255 255);
-}
-  .navbar-light.fixed-top {
-   color: white !important;;
+    background-color: #f5c615;
   }
 
+  /* Styles for navbar links */
+  .navbar-light .navbar-nav .nav-link {
+    color: rgb(255 255 255);
+  }
+
+  /* Styles for navbar text color */
+  .navbar-light.fixed-top {
+    color: white !important;
+  }
+
+  /* Styles for menu items */
   ul#menu-menu-1 {
     display: flex;
     align-items: center;
-}
+  }
+
+  /* Styles for navbar brand */
+  .navbar-brand {
+    display: inline-block;
+    padding: 0px;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+    line-height: inherit;
+    white-space: nowrap;
+  }
 </style>
