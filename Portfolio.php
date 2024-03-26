@@ -6,56 +6,32 @@ Template Name: Custom Template
   ?>
  <!-- ======= Services Section ======= -->
  <section id="services" class="services section-bg">
-   <div class="container">
+  <div class="container">
+    <div class="section-title" data-aos="fade-up">
+      <h2>SERVICES</h2>
+      <!-- Video -->
+      <div class="video-container" data-aos="fade-bottom">
+        <video autoplay loop muted>
+          <source src="<?php echo get_template_directory_uri() ?>/my_video.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <p data-aos="zoom-in">As a provider of 3D services, our team offers a range of specialized services related to
+        3D computer graphics, modeling, and design. Our services include 3D asset creation, animation,
+        virtual and augmented reality development, 3D scanning, and architectural visualization.
+        We work closely with our clients to understand their specific needs and provide tailored
+        solutions that meet their project requirements. Our team is committed to delivering high-quality
+        services that bring their ideas to life, whether it's for gaming, film and animation, product
+        design, or other applications.</p>
+    </div>
+  </div>
+</section>
 
-     <div class="section-title" data-aos="fade-up">
-       <h2>SERVICES</h2>
-       <p data-aos="zoom-in">As a provider of 3D services, our team offers a range of specialized services related to
-         3D computer graphics, modeling, and design. Our services include 3D asset creation, animation,
-         virtual and augmented reality development, 3D scanning, and architectural visualization.
-         We work closely with our clients to understand their specific needs and provide tailored
-         solutions that meet their project requirements. Our team is committed to delivering high-quality
-         services that bring their ideas to life, whether it's for gaming, film and animation, product
-         design, or other applications.</p>
-     </div>
 
-     <!-- <div class="row">
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in">
-          <div class="icon-box icon-box-pink">
-            <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon/3D Asset.png" alt=""></div>
-            <h4 class="title"><a href="">3D Assets</a></h4>
-            <p class="description">A digital file containing a three-dimensional object or model used in computer graphics, such as video games, virtual reality, or film and animation projects.</p>
-          </div>
-        </div>
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box icon-box-cyan">
-            <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon/AR VR.png" alt=""></div>
-            <h4 class="title"><a href="">AR / VR</a></h4>
-            <p class="description">Computer technologies that create immersive digital experiences, either by enhancing the real world (AR) or simulating a virtual environment (VR)</p>
-          </div>
-        </div>
+<!-- End Services Section -->
 
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box icon-box-green">
-            <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon/2d.png" alt=""></div>
-            <h4 class="title"><a href="">2D to 3D</a></h4>
-            <p class="description">Transforming a two-dimensional image or object into a three-dimensional model using specialized software or hardware.</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box icon-box-blue">
-            <div class="icon"><img src="<?php echo get_template_directory_uri() ?>/assets/img/icon/3D Scan.png" alt=""></div>
-            <h4 class="title"><a href="">3D Scan</a></h4>
-            <p class="description">"Creating a digital 3D model of real-world objects or environments using specialized hardware and software."</p>
-          </div>
-        </div>
-
-      </div> -->
-
-   </div>
- </section><!-- End Services Section -->
+ <!-- End Services Section -->
 
  <!-- ======= Features Section ======= -->
  <section id="features" class="features">
@@ -338,13 +314,27 @@ Template Name: Custom Template
 
   section#services.section-bg {
     background-color: #e9ecef;
-    padding: 9% 0px 5%;
-  }
-
+    padding: 8% 0px 5%;
+}
   .text-center {
     font-size: 3rem;
     text-align: center !important;
   }
+
+
+  /* video  */
+  .video-container {
+  position: relative;
+  width: 60%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the video horizontally */
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 14px 0px 3% 0px;
+}
 </style>
 
 
